@@ -313,10 +313,10 @@ b,strong{font-weight:600}
 .mas .m-blink{transform-box:fill-box;transform-origin:center;animation:blink 5.5s infinite}
 @keyframes blink{0%,93%,100%{transform:scaleY(1)}96%{transform:scaleY(.08)}}
 .mas .m-eyes{transform:translate(var(--ex),var(--ey));transition:transform .18s ease-out}
-.mas .m-ant{transform-box:view-box;transform-origin:60px 17px;animation:ant 9s ease-in-out infinite}
+.mas .m-ant{transform-box:view-box;transform-origin:60px 8px;animation:ant 9s ease-in-out infinite}
 @keyframes ant{0%,86%,100%{transform:rotate(0)}90%{transform:rotate(-12deg)}95%{transform:rotate(9deg)}}
-.mas .m-armR{transform-box:view-box;transform-origin:82px 92px}
-.mas .m-armL{transform-box:view-box;transform-origin:38px 92px}
+.mas .m-armR{transform-box:view-box;transform-origin:82px 96px}
+.mas .m-armL{transform-box:view-box;transform-origin:38px 96px}
 .mas .m-glad,.mas .m-m2,.mas .m-m3{display:none}
 .mas[data-mood=wave] .m-armR{animation:wave 1.2s ease-in-out 2}
 @keyframes wave{0%,100%{transform:rotate(0)}20%{transform:rotate(-125deg)}40%{transform:rotate(-95deg)}60%{transform:rotate(-130deg)}80%{transform:rotate(-100deg)}}
@@ -368,22 +368,79 @@ b,strong{font-weight:600}
 .xp{animation:pop .35s ease}
 .bg,.b2,nav button,.tc{-webkit-tap-highlight-color:transparent}
 @media(prefers-reduced-motion:reduce){#home:before{-webkit-mask-image:none;mask-image:none;opacity:.35}}
+
+/* ===== Pass 3: icons, denser layout, opening section, tactile buttons ===== */
+.ic{vertical-align:-3px;margin-right:6px;flex:none}
+.ic:only-child{margin:0}
+nav b .ic{color:var(--ac);margin-right:8px;vertical-align:-4px}
+.drop .ic{color:var(--ac);margin:0 auto 4px}
+.endrow{display:flex;align-items:center;justify-content:center;gap:14px;color:var(--ac);font-family:'IBM Plex Mono',monospace;font-size:22px}
+.endrow .ic{margin:0}
+.lhint .ic,#lout .e .ic{margin-right:6px}
+#msg .ic{vertical-align:-4px;margin:0 4px}
+/* tactile primary button */
+.bg{box-shadow:0 3px 0 var(--btn2);transition:background .2s,transform .12s,box-shadow .12s}
+.bg:active{transform:translateY(2px);box-shadow:0 1px 0 var(--btn2)}
+.lbtn .bg,.row .bg{display:inline-flex;align-items:center;justify-content:center}
+/* tighter rhythm */
+main{padding:20px 24px 48px}
+.hd{margin:18px 0 4px}
+#topic h2{margin:32px 0 14px}
+.note{margin-bottom:28px}
+.labcard{margin-bottom:20px}
+.card{margin-bottom:22px}
+#topic[data-i="0"] .note{margin-bottom:40px;column-gap:40px;grid-template-rows:1fr auto auto 1fr 28px 1fr auto auto 1fr}
+.pg{margin:10px 0 24px}
+.grid{gap:2px 28px}
+.tc{padding:14px 16px}
+#toc>.card{margin-top:28px}
+.card.end{margin:3vh auto}
+/* opening section */
+#home{min-height:0;padding:0}
+#home.on{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:40px;align-items:center;text-align:left;padding:28px 0 12px}
+#home .hl{min-width:0}
+#home .hero-bot{justify-content:flex-start;margin:0 0 14px}
+#home .hero-bot .bub{width:min(300px,100%)}
+#home h1{font-size:clamp(34px,4.6vw,56px);margin:.1em 0 .2em}
+#home p{font-size:clamp(17px,1.8vw,20px);margin:0 0 18px}
+#home .bg{margin-top:0;font-size:16px;padding:13px 30px}
+#home .card.about{margin:26px 0 0;max-width:520px}
+#home .about .row{justify-content:flex-start;margin:6px 0 0}
+#home .about label{text-align:left;margin:0 0 4px}
+#home .about input{min-width:0;flex:1 1 130px}
+.ho{min-width:0}
+.ho .oh{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.ho .oh small{font-weight:600;font-size:12px;letter-spacing:.12em;color:var(--ac)}
+.ho .oh b{font-size:14px;color:var(--mut);font-weight:500}
+.ho .pg{margin:10px 0 8px}
+.ho ol{list-style:none;margin:0;padding:0}
+.ho li button{display:grid;grid-template-columns:40px 1fr auto;align-items:center;gap:12px;width:100%;text-align:left;background:none;border:0;color:inherit;padding:10px 12px;margin:0 -12px;width:calc(100% + 24px);border-radius:8px;transition:background .2s}
+.ho li button:hover{background:var(--soft)}
+.ho .n{font:500 18px 'IBM Plex Mono',monospace;color:var(--ac)}
+.ho .ot b{display:block;font-size:16px;font-weight:600;transition:color .2s}
+.ho li button:hover .ot b{color:var(--ac)}
+.ho .ot small{display:block;color:var(--mut);font-size:13px;line-height:1.35;margin-top:1px}
+.ho .vz{font:12px 'IBM Plex Mono',monospace;background:var(--code);color:#7fd0bd;padding:3px 8px;border-radius:5px;white-space:nowrap}
+#home.on .hl>.hero-bot,#home.on .hl>h1,#home.on .hl>p,#home.on .hl>#sr,#home.on .hl>.about,#home.on>.ho{animation:pop .6s var(--ease) backwards}
+#home.on .hl>h1{animation-delay:.08s}#home.on .hl>p{animation-delay:.14s}#home.on .hl>#sr{animation-delay:.2s}#home.on .hl>.about{animation-delay:.26s}#home.on>.ho{animation-delay:.18s}
+@media(max-width:900px){#home.on{grid-template-columns:1fr;gap:28px;padding-top:12px}.ho li button{grid-template-columns:34px 1fr}.ho .vz{display:none}}
+@media(max-width:600px){main{padding:14px 16px 40px}#home .hero-bot{flex-direction:row;align-items:center;gap:12px}#home .hero-bot .bub:after{left:-5px;top:50%;margin:-5px 0 0}#home .hero-bot .mas{width:92px!important}}
 </style>
-<nav><b>☕ Java<span>Review</span></b><button data-v="home">Home</button><button data-v="toc">Table of Contents</button><button data-v="game">Java Game</button></nav>
+<nav><b><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9h11v5a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5zM16 10h1.5a2.5 2.5 0 0 1 0 5H16M8 3.5c0 1 .8 1.3.8 2.3M12 3.5c0 1 .8 1.3.8 2.3"/></svg> Java<span>Review</span></b><button data-v="home">Home</button><button data-v="toc">Table of Contents</button><button data-v="game">Java Game</button></nav>
 <main>
 <section id="home" class="v"></section>
 <section id="toc" class="v"></section>
 <section id="topic" class="v"></section>
 <section id="game" class="v"></section>
 </main>
-<div id="lab"><div class="lbx"><div class="lhd"><span class="dots"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i></span><b>JAVA<span>LAB</span> <small id="ltt" style="color:#9fb3c8;font-weight:400"></small></b><div id="ltab"></div><button id="lx">✕ CLOSE</button></div>
-<div class="lm"><div class="lc"><p id="linf"></p><div id="lctl"></div><div class="lbtn"><button class="bg" id="lrun">▶ RUN JAVA</button><button class="b2" id="lrst" style="color:#e6edf3;background:#1b2331;border-color:#2f3b52">RESET</button></div></div>
+<div id="lab"><div class="lbx"><div class="lhd"><span class="dots"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i></span><b>JAVA<span>LAB</span> <small id="ltt" style="color:#9fb3c8;font-weight:400"></small></b><div id="ltab"></div><button id="lx"><svg class="ic" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg> CLOSE</button></div>
+<div class="lm"><div class="lc"><p id="linf"></p><div id="lctl"></div><div class="lbtn"><button class="bg" id="lrun"><svg class="ic" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg> RUN JAVA</button><button class="b2" id="lrst" style="color:#e6edf3;background:#1b2331;border-color:#2f3b52">RESET</button></div></div>
 <div class="le"><div class="lft">Main.java — you can edit the code too</div><div class="ed"><pre id="lhl" aria-hidden="true"></pre><textarea id="lcode" spellcheck="false" wrap="off"></textarea></div></div></div>
 <div class="lo"><h4>OUTPUT</h4><div id="lout"></div><div id="lit"></div></div><div class="lwm">{ }</div></div></div>
 <div id="md"><div class="box" id="mb"></div></div>
 <script>
 const SRC=document.documentElement.outerHTML;
-const $=s=>document.querySelector(s),flash=()=>document.querySelectorAll('.sv').forEach(e=>e.textContent='● Saved on this device ✓');
+const $=s=>document.querySelector(s),flash=()=>document.querySelectorAll('.sv').forEach(e=>e.innerHTML='● Saved on this device '+ic('check',13));
 const LS={get(k,d){try{let v=localStorage.getItem('jcr:'+k);if(v===null&&window.__SEED)v=window.__SEED.ls[k]??null;return v===null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem('jcr:'+k,JSON.stringify(v));flash()}catch(e){}}};
 const idb=new Promise(r=>{try{const q=indexedDB.open('jcr',1);q.onupgradeneeded=()=>q.result.createObjectStore('m');q.onsuccess=()=>r(q.result);q.onerror=()=>r(null)}catch(e){r(null)}});
 const mg=async k=>{const d=await idb;return d?new Promise(r=>{const q=d.transaction('m').objectStore('m').get(k);q.onsuccess=()=>r(q.result);q.onerror=()=>r()}):0};
@@ -392,15 +449,22 @@ const modal=h=>{$('#mb').innerHTML=h;$('#md').classList.add('on')},closeM=()=>$(
 const ask=(msg,fn,yl)=>{modal(`<h2>Are you sure?</h2><p>${msg}</p><div class=row><button class=bg id=y>${yl||'Yes, delete'}</button><button class=b2 id=n>Cancel</button></div>`);$('#n').onclick=closeM;$('#y').onclick=()=>{closeM();fn()}};
 const hl=c=>c.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/("[^"]*")|(\/\/.*)|\b(public|class|static|void|int|double|String|boolean|if|else|for|while|switch|case|break|try|catch|new|true|false|char|long)\b|\b(\d+)\b/g,(m,s,c,k)=>`<i class=${s?'s':c?'c':k?'k':'n'}>${m}</i>`);
 
+const IC={"x": "<path d=\"M6 6l12 12M18 6L6 18\"/>", "check": "<path d=\"M5 12.5l4.5 4.5L19 7.5\"/>", "play": "<path d=\"M8 5.5v13l10.5-6.5z\"/>", "pencil": "<path d=\"M4 20l1-4L16.5 4.5a2 2 0 0 1 3 3L8 19l-4 1zM14.5 6.5l3 3\"/>", "video": "<rect x=\"3\" y=\"6\" width=\"13\" height=\"12\" rx=\"2\"/><path d=\"M16 10.5l5-3v9l-5-3\"/>", "alert": "<path d=\"M12 4l9 16H3z\"/><path d=\"M12 10v4M12 17.2v.1\"/>", "bulb": "<path d=\"M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z\"/>", "gamepad": "<rect x=\"2.5\" y=\"7\" width=\"19\" height=\"11\" rx=\"5\"/><path d=\"M7.5 10.5v4M5.5 12.5h4\"/><circle cx=\"15.5\" cy=\"11.5\" r=\".9\" fill=\"currentColor\"/><circle cx=\"18\" cy=\"14\" r=\".9\" fill=\"currentColor\"/>", "trophy": "<path d=\"M8 4h8v5a4 4 0 0 1-8 0zM8 6H5v1.5A3 3 0 0 0 8 10.5M16 6h3v1.5a3 3 0 0 1-3 3M12 13v4M10 17h4M8.5 20h7\"/>", "plane": "<path d=\"M2.5 12.5l19-8.5-6 16-3.2-6.3zM12.3 13.7L21.5 4\"/>", "cloud": "<path d=\"M7.5 18.5a4.5 4.5 0 0 1-.6-8.96 5.5 5.5 0 0 1 10.6 1.46A3.75 3.75 0 0 1 17 18.5z\"/>", "cup": "<path d=\"M5 9h11v5a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5zM16 10h1.5a2.5 2.5 0 0 1 0 5H16M8 3.5c0 1 .8 1.3.8 2.3M12 3.5c0 1 .8 1.3.8 2.3\"/>"};
+const ic=(n,s=18)=>`<svg class="ic" width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${IC[n]}</svg>`;
 /* ---- Bit: the mascot, plus interaction helpers ---- */
 const RM=matchMedia('(prefers-reduced-motion:reduce)');
-const MAS=(m='idle',w=120)=>`<span class="mas" data-mood="${m}" style="width:${w}px"><svg viewBox="0 0 120 132" aria-hidden="true" focusable="false"><g class="m-all"><ellipse cx="60" cy="127" rx="26" ry="3.5" fill="#000" opacity=".14"/><g class="m-armL"><path d="M38 92L24 108" stroke="#2a9e8c" stroke-width="9" stroke-linecap="round"/></g><g class="m-armR"><path d="M82 92L96 108" stroke="#2a9e8c" stroke-width="9" stroke-linecap="round"/></g><rect x="34" y="80" width="52" height="38" rx="16" fill="#35b3a0"/><circle cx="60" cy="99" r="11" fill="#f4f6f5"/><text x="60" y="103" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-weight="600" font-size="11" fill="#14806f">{ }</text><ellipse cx="48" cy="121" rx="9" ry="5" fill="#2a9e8c"/><ellipse cx="72" cy="121" rx="9" ry="5" fill="#2a9e8c"/><g class="m-ant"><path d="M60 17V8" stroke="#2a9e8c" stroke-width="3.5" stroke-linecap="round"/><circle cx="60" cy="6" r="5" fill="#e8a94b"/></g><circle cx="15" cy="48" r="7" fill="#2a9e8c"/><circle cx="105" cy="48" r="7" fill="#2a9e8c"/><rect x="18" y="16" width="84" height="62" rx="28" fill="#35b3a0"/><rect x="27" y="26" width="66" height="44" rx="20" fill="#f4f6f5"/><g class="m-eyes"><g class="m-open"><g class="m-blink"><ellipse cx="47" cy="47" rx="5.5" ry="7.5" fill="#16312d"/><ellipse cx="73" cy="47" rx="5.5" ry="7.5" fill="#16312d"/><circle cx="48.8" cy="44" r="2" fill="#fff"/><circle cx="74.8" cy="44" r="2" fill="#fff"/></g></g><g class="m-glad"><path d="M41 49Q47 40 53 49M67 49Q73 40 79 49" fill="none" stroke="#16312d" stroke-width="3.5" stroke-linecap="round"/></g></g><circle cx="37" cy="59" r="4.5" fill="#e8a94b" opacity=".4"/><circle cx="83" cy="59" r="4.5" fill="#e8a94b" opacity=".4"/><path class="m-mouth m-m1" d="M50 59Q60 67 70 59" fill="none" stroke="#16312d" stroke-width="3" stroke-linecap="round"/><path class="m-mouth m-m2" d="M49 58Q60 74 71 58Z" fill="#16312d"/><path class="m-mouth m-m3" d="M52 63H68" fill="none" stroke="#16312d" stroke-width="3" stroke-linecap="round"/></g></svg></span>`;
+const MAS=(m='idle',w=120)=>`<span class="mas" data-mood="${m}" style="width:${w}px"><svg viewBox="0 -8 120 140" aria-hidden="true" focusable="false"><g class="m-all"><ellipse cx="60" cy="127" rx="28" ry="3.5" fill="#000" opacity=".14"/><g class="m-armL"><path d="M38 96L23 110" stroke="#2f7bc8" stroke-width="10" stroke-linecap="round"/></g><g class="m-armR"><path d="M82 96L97 110" stroke="#2f7bc8" stroke-width="10" stroke-linecap="round"/></g><ellipse cx="60" cy="105" rx="25" ry="21" fill="#3b8ee0"/><ellipse cx="60" cy="107" rx="15" ry="14" fill="#f6f8fb"/><text x="60" y="111" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-weight="600" font-size="11" fill="#2f7bc8">{ }</text><ellipse cx="46" cy="123" rx="10" ry="5" fill="#f6f8fb"/><ellipse cx="74" cy="123" rx="10" ry="5" fill="#f6f8fb"/><g class="m-ant"><path d="M60 8V0" stroke="#2f7bc8" stroke-width="3.5" stroke-linecap="round"/><circle cx="60" cy="-3" r="5" fill="#e8a94b"/></g><circle cx="60" cy="50" r="44" fill="#3b8ee0"/><ellipse cx="60" cy="57" rx="35" ry="32" fill="#f6f8fb"/><g class="m-eyes"><g class="m-open"><g class="m-blink"><ellipse cx="48" cy="45" rx="6" ry="8.5" fill="#16312d"/><ellipse cx="72" cy="45" rx="6" ry="8.5" fill="#16312d"/><circle cx="50" cy="41.5" r="2.2" fill="#fff"/><circle cx="74" cy="41.5" r="2.2" fill="#fff"/></g></g><g class="m-glad"><path d="M42 49Q48 39 54 49M66 49Q72 39 78 49" fill="none" stroke="#16312d" stroke-width="3.5" stroke-linecap="round"/></g></g><circle cx="60" cy="58" r="3.4" fill="#e8a94b"/><circle cx="39" cy="65" r="4.5" fill="#e8a94b" opacity=".35"/><circle cx="81" cy="65" r="4.5" fill="#e8a94b" opacity=".35"/><path class="m-mouth m-m1" d="M46 67Q60 80 74 67" fill="none" stroke="#16312d" stroke-width="3" stroke-linecap="round"/><path class="m-mouth m-m2" d="M46 67Q60 87 74 67Z" fill="#16312d"/><path class="m-mouth m-m3" d="M52 72H68" fill="none" stroke="#16312d" stroke-width="3" stroke-linecap="round"/></g></svg></span>`;
 const setMood=(el,m,ms)=>{if(!el)return;clearTimeout(el._t);el.dataset.mood='idle';void el.offsetWidth;el.dataset.mood=m;if(m!='idle')el._t=setTimeout(()=>el.dataset.mood='idle',ms||1800)};
 let typeT,heroT;
 const typeInto=(el,txt,cb)=>{clearInterval(typeT);if(RM.matches){el.textContent=txt;cb&&cb();return}let i=0;el.textContent='';typeT=setInterval(()=>{if(!el.isConnected){clearInterval(typeT);return}el.textContent=txt.slice(0,++i);if(i>=txt.length){clearInterval(typeT);cb&&cb()}},24)};
-function heroIntro(){clearTimeout(heroT);const b=$('#hb');if(!b)return;const nm=(LS.get('t:ab1','')||'').trim();
+function heroIntro(){homeLayout();clearTimeout(heroT);const b=$('#hb');if(!b)return;const nm=(LS.get('t:ab1','')||'').trim();
 setMood($('#home .mas'),'wave',2400);
 typeInto(b,nm?`Welcome back, ${nm}!`:"Hi! I'm Bit, your Java review buddy.",()=>{heroT=setTimeout(()=>{const h=$('#hb');if(h)typeInto(h,'Press Start Reviewing when you are ready.')},1500)})}
+
+function homeLayout(){const h=$('#home');if(!h||h.querySelector('.hl'))return;h.querySelectorAll('.fl').forEach(e=>e.remove());
+const L=document.createElement('div');L.className='hl';[...h.children].forEach(c=>L.appendChild(c));h.appendChild(L);
+const dn=LS.get('done',[]),A=document.createElement('aside');A.className='ho';
+A.innerHTML=`<div class=oh><small>TABLE OF CONTENTS</small><b>${dn.length} / 7 Topics Completed</b></div><div class=pg><i style="width:${dn.length/7*100}%"></i></div><ol>${T.map((t,i)=>`<li><button type=button data-oi=${i}><span class=n>0${i+1}${dn.includes(i)?' '+ic('check',14):''}</span><span class=ot><b>${t.t}</b><small>${t.d}</small></span><span class=vz>${t.v}</span></button></li>`).join('')}</ol>`;h.appendChild(A)}
 let bT;
 const say=(msg,m='happy',ms=3400)=>{const b=$('#bitb'),w=$('#bit');if(!b||w.hidden)return;b.textContent=msg;b.classList.add('show');setMood($('#bit .mas'),m,1800);clearTimeout(bT);bT=setTimeout(()=>b.classList.remove('show'),ms)};
 function runFlow(){const f=$('.flow');if(!f||f._r)return;f._r=1;const nm=($('#fdin').value.trim()||'Sam').slice(0,20),nodes=[...f.querySelectorAll(':scope>div')],ar=[...f.querySelectorAll(':scope>i')],cs=nodes.map(n=>n.querySelector('code'));
@@ -416,10 +480,11 @@ document.addEventListener('pointerenter',e=>{const m=e.target.closest&&e.target.
 document.addEventListener('click',e=>{const t=e.target;
 const m=t.closest('.mas');if(m&&!t.closest('#bitbtn'))setMood(m,'happy',1400);
 if(t.closest('#fdgo'))runFlow();
-if(t.closest('#dn')){setTimeout(()=>{const b=$('#dn');if(!b)return;const d=LS.get('done',[]).length,ok=b.textContent.startsWith('✓');b.classList.toggle('done',ok);if(ok)say(d==7?'All 7 topics done. Brilliant work!':d?`Topic complete! ${d} of 7 done.`:'Topic complete!','cheer',3800)},0);return}
+if(t.closest('#dn')){setTimeout(()=>{const b=$('#dn');if(!b)return;const d=LS.get('done',[]).length,ok=b.textContent.trim().startsWith('Completed');b.classList.toggle('done',ok);if(ok)say(d==7?'All 7 topics done. Brilliant work!':d?`Topic complete! ${d} of 7 done.`:'Topic complete!','cheer',3800)},0);return}
 if(t.closest('.tc,#nx,#pv')){setTimeout(()=>{const tp=$('#topic');if(tp.classList.contains('on'))say(`Section 0${+tp.dataset.i+1}: ${T[+tp.dataset.i].t}`,'wave',2600)},60);return}
 if(t.closest('#gs,#a')){say('Good luck!','wave',2200);return}
 const q=t.closest('#qa button[data-k]');if(q)setTimeout(()=>{if(q.classList.contains('ok'))say('Correct!','happy',2200);else if(q.classList.contains('no'))say('Not quite. Check the explanation.','oops',3200)},0)});
+document.addEventListener('click',e=>{const o=e.target.closest&&e.target.closest('[data-oi]');if(o)topic(+o.dataset.oi)});
 document.addEventListener('keydown',e=>{if(e.target.id=='fdin'&&e.key=='Enter')runFlow()});
 document.addEventListener('focusin',e=>{if(e.target.id=='fdin')e.target.readOnly=false});
 document.addEventListener('change',e=>{if(e.target.dataset&&e.target.dataset.k=='ab1'&&e.target.value.trim()){const b=$('#hb');if(b){clearTimeout(heroT);typeInto(b,`Nice to meet you, ${e.target.value.trim()}!`);setMood($('#home .mas'),'happy',1600)}}});
@@ -460,7 +525,7 @@ const T=[
 ['Debugging','Print values with println, trace your code line by line, and test small pieces.'],
 ['Try / Catch','Code in try runs normally; if it throws an exception, catch handles it.',`try {\n    System.out.println(10 / 0);\n} catch (Exception e) {\n    System.out.println("An error occurred.");\n}`],
 ['Exception Handling','Exceptions are runtime errors, like dividing by zero or bad input. Catching them stops the program from crashing.']]},
-{t:'Exercise',v:'✎ ? ? ?',d:'Your own questions and video explanations.'}];
+{t:'Exercise',v:ic('pencil',13)+' ? ? ?',d:'Your own questions and video explanations.'}];
 const show=v=>{document.querySelectorAll('.v').forEach(e=>e.classList.toggle('on',e.id==v||(v=='topic'&&e.id=='topic')));document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('on',b.dataset.v==(v=='topic'?'toc':v)));scrollTo(0,0);if(v=='toc')toc();if(v=='game')gameMenu()};
 document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>show(b.dataset.v));
 document.addEventListener('input',e=>{const k=e.target.dataset?.k;if(k)LS.set('t:'+k,e.target.value)});
@@ -468,7 +533,7 @@ const fill=r=>r.querySelectorAll('[data-k]').forEach(e=>e.value=LS.get('t:'+e.da
 async function hyd(d){const k=d.dataset.m,v=d.dataset.kind=='video',b=await mg(k);if(d._u){URL.revokeObjectURL(d._u);d._u=0}const sd=!b&&window.__SEED&&window.__SEED.media[k];
 if(b){const u=d._u=URL.createObjectURL(b);d.innerHTML=(v?`<video src="${u}" controls preload=metadata></video>`:`<img src="${u}" alt="">`)+'<div class=row><button class=b2 data-a=rep>Replace</button><button class=b2 data-a=rem>Remove</button></div>'}
 else if(sd)d.innerHTML=v?`<video src="${sd}" controls preload=metadata></video>`:`<img src="${sd}" alt="">`;
-else d.innerHTML=`<div class=drop data-a=rep>${v?'🎬<b>ADD YOUR VIDEO HERE</b><small>Select a video from your device.</small>':'<b>+ ADD YOUR PICTURE</b><small>Select a picture from your device</small>'}</div>`;
+else d.innerHTML=`<div class=drop data-a=rep>${v?ic('video',30)+'<b>ADD YOUR VIDEO HERE</b><small>Select a video from your device.</small>':'<b>+ ADD YOUR PICTURE</b><small>Select a picture from your device</small>'}</div>`;
 d.onclick=e=>{const a=e.target.closest('[data-a]')?.dataset.a;if(a=='rem')ms(k).then(()=>hyd(d));if(a=='rep'){const i=document.createElement('input');i.type='file';i.accept=v?'video/*':'image/*';i.onchange=async()=>{if(i.files[0]){await ms(k,i.files[0]);hyd(d)}};i.click()}}}
 /* ---- mini Java simulator ---- */
 function runJava(src,inp){let o='',ins=inp.split('\n'),ix=0,n=0;const ints=new Set(),T$=(n,m)=>{const e=new Error(m);e.n=n;return e};
@@ -494,7 +559,7 @@ const J=[["Why did the Java programmer wear glasses?","Because they couldn't C#!
 function start(){let k;do k=Math.floor(Math.random()*J.length);while(k==lj);lj=k;
 modal(`<div class=stage>${MAS('wave',104)}<div class=jk><b>${J[k][0]}</b><p>${J[k][1]}</p></div>${['{ }',';','7','int'].map((s,i)=>`<span class=fl style="left:${i*28}%;top:${i%2?80:-4}%;animation-delay:${i*.5}s">${s}</span>`).join('')}</div><div class=row style="justify-content:center"><button class=bg id=ct>CONTINUE →</button></div>`);
 $('#ct').onclick=()=>{closeM();show('toc')}}
-function toc(){const dn=LS.get('done',[]);$('#toc').innerHTML=`<h1>Table of Contents</h1><b>${dn.length} / 7 Topics Completed</b><div class=pg><i style="width:${dn.length/7*100}%"></i></div><div class=grid>${T.map((t,i)=>`<div class="card tc" data-i=${i}><div class=n>0${i+1}${dn.includes(i)?' ✓':''}</div><h3>${t.t}</h3><span class=vz>${t.v}</span><p class=mut>${t.d}</p></div>`).join('')}</div>${window.__SEED?'':`<div class=card><h3>Back Up My Content</h3><p class=mut>Your work is saved only in this browser. Save a backup file so you never lose it. Use <b>Save Small Backup</b> for a file small enough to send to Claude (it leaves out videos and shrinks pictures).</p><div class=row><button class=bg id=bk1>Save Backup</button><button class=b2 id=bk4>Download Website Folder (.zip)</button><button class=b2 id=bk3>Save Small Backup</button><button class=b2 id=bk2>Load Backup</button><button class=b2 id=rs>Reset My Content</button></div></div>`}`;
+function toc(){const dn=LS.get('done',[]);$('#toc').innerHTML=`<h1>Table of Contents</h1><b>${dn.length} / 7 Topics Completed</b><div class=pg><i style="width:${dn.length/7*100}%"></i></div><div class=grid>${T.map((t,i)=>`<div class="card tc" data-i=${i}><div class=n>0${i+1}${dn.includes(i)?' '+ic('check',18):''}</div><h3>${t.t}</h3><span class=vz>${t.v}</span><p class=mut>${t.d}</p></div>`).join('')}</div>${window.__SEED?'':`<div class=card><h3>Back Up My Content</h3><p class=mut>Your work is saved only in this browser. Save a backup file so you never lose it. Use <b>Save Small Backup</b> for a file small enough to send to Claude (it leaves out videos and shrinks pictures).</p><div class=row><button class=bg id=bk1>Save Backup</button><button class=b2 id=bk4>Download Website Folder (.zip)</button><button class=b2 id=bk3>Save Small Backup</button><button class=b2 id=bk2>Load Backup</button><button class=b2 id=rs>Reset My Content</button></div></div>`}`;
 document.querySelectorAll('.tc').forEach(c=>c.onclick=()=>topic(+c.dataset.i));
 if($('#rs'))$('#rs').onclick=()=>ask('This deletes ALL your pictures, videos, code, text and progress on this device.',async()=>{try{Object.keys(localStorage).filter(k=>k.startsWith('jcr:')).forEach(k=>localStorage.removeItem(k))}catch(e){}const d=await idb;if(d)d.transaction('m','readwrite').objectStore('m').clear();toc()})}
 const okM=(t,p)=>modal(`<h3>${t}</h3><p>${p}</p><button class=bg onclick="closeM()">OK</button>`);
@@ -544,7 +609,7 @@ $('#ltab').innerHTML=L.length>1?L.map((e,i)=>`<button data-e=${i} class="${i==LB
 $('#linf').textContent=ex.info||'Change a value below and watch the Java code update. Then press RUN JAVA.';
 $('#lctl').innerHTML=ex.c.map((c,j)=>`<label>${c.l}</label>`+(c.t=='sel'?`<select data-j=${j}>${c.o.map(o=>`<option value="${o[0]}">${o[1]}</option>`).join('')}</select>`:`<input data-j=${j} type=${c.t=='num'?'number':'text'} ${c.t=='num'?'step=any':''} autocomplete=off>`)).join('');
 ex.c.forEach((c,j)=>{if(c.t=='in')ctlEl(j).value=St.in[j]});
-$('#lcode').value=St.code;$('#lhl').style.transform='';paint();fromCode();$('#lout').innerHTML='<div style="color:#6b7a8c">Press ▶ RUN JAVA to see the output.</div>';$('#lit').innerHTML=''}
+$('#lcode').value=St.code;$('#lhl').style.transform='';paint();fromCode();$('#lout').innerHTML='<div style="color:#6b7a8c">Press '+ic('play',12)+' RUN JAVA to see the output.</div>';$('#lit').innerHTML=''}
 function fromCode(skip){const St=cur();LABS[LB.t][LB.e].c.forEach((c,j)=>{if(c.t=='in'||j===skip)return;const el=ctlEl(j),m=St.code.match(c.re);el.classList.toggle('na',!m);if(m&&document.activeElement!==el)el.value=c.rd?c.rd(m[2]):m[2]})}
 function ctl(j){const St=cur(),c=LABS[LB.t][LB.e].c[j],el=ctlEl(j);let v=el.value;
 if(c.t=='in'){St.in[j]=v;return}
@@ -554,8 +619,8 @@ if(!c.re.test(St.code)){el.classList.add('na');return}
 St.code=St.code.replace(c.re,(m,a,b,d)=>a+(c.fmt?c.fmt(v):v)+d);$('#lcode').value=St.code;paint();const h=$('#lhl');h.classList.remove('fx');void h.offsetWidth;h.classList.add('fx');fromCode(j)}
 function runLab(){const St=cur(),ex=LABS[LB.t][LB.e];let r;try{r=runJava(St.code,St.in.filter(x=>x!==undefined).join('\n'))}catch(e){r='error: something went wrong running this code.'}
 const isE=l=>/^(error:|Exception in thread)/.test(l),L=r.replace(/\n+$/,'').split('\n'),allE=r.startsWith('error:'),bad=L.some(isE);
-$('#lout').innerHTML=r.trim()==''?'<div style="color:#6b7a8c">(nothing was printed — check your System.out.println and your loop condition)</div>':L.map(l=>(allE||isE(l))?`<div class=e>⚠ ${eh(l)}</div>`:`<div><i>&gt;</i>${eh(l)}</div>`).join('');
-const h=HINTS.find(x=>x[0].test(r));if(h&&bad)$('#lout').insertAdjacentHTML('beforeend',`<div class=lhint>💡 ${h[1]}</div>`);
+$('#lout').innerHTML=r.trim()==''?'<div style="color:#6b7a8c">(nothing was printed — check your System.out.println and your loop condition)</div>':L.map(l=>(allE||isE(l))?`<div class=e>${ic('alert',14)} ${eh(l)}</div>`:`<div><i>&gt;</i>${eh(l)}</div>`).join('');
+const h=HINTS.find(x=>x[0].test(r));if(h&&bad)$('#lout').insertAdjacentHTML('beforeend',`<div class=lhint>${ic('bulb',15)} ${h[1]}</div>`);
 $('#lit').innerHTML=ex.viz&&!bad&&r.trim()?'<h4 style="width:100%;margin:6px 0 0">LOOP ITERATIONS</h4>'+L.slice(0,40).map((l,k)=>`<span class=lit style="animation-delay:${k*.12}s"><small>#${k+1}</small>${eh(l)}</span>`).join(''):''}
 function resetLab(){const ex=LABS[LB.t][LB.e],k=LB.t+':'+LB.e,go=()=>{delete LB.m[k];loadEx()};if(cur().man)ask('You changed the code yourself. Reset will bring back the original example.',go,'Yes, reset');else go()}
 function initLab(){const ta=$('#lcode');$('#lx').onclick=closeLab;$('#lrun').onclick=runLab;$('#lrst').onclick=resetLab;
@@ -583,23 +648,23 @@ const z=await makeZip(files);if(dl)await dl.save({filename:'java-review-website.
 okM('Website folder ready ✓',`Your zip has the website plus ${files.length-2} picture/video file${files.length-2==1?'':'s'} (${(z.size/1048576).toFixed(1)} MB). Unzip it, then upload the whole folder to your website builder.`)}catch(e){if(!e||e.code!='declined')okM('Could not build the folder','Please try again.')}}
 function ytId(u){const m=(u||'').trim().match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?(?:.*&)?v=|embed\/|shorts\/|live\/|v\/))([\w-]{11})/);return m?m[1]:null}
 function ytr(n){const el=$('#yt'+n);if(!el)return;const u=(LS.get('t:vu'+n,'')||'').trim(),id=ytId(u);
-el.innerHTML=id?`<div class=ytw><iframe src="https://www.youtube-nocookie.com/embed/${id}" title="Video ${n}" loading=lazy allow="accelerometer;encrypted-media;picture-in-picture;fullscreen" allowfullscreen></iframe></div><div class=row><a class=b2 href="https://www.youtube.com/watch?v=${id}" target=_blank rel=noopener style="text-decoration:none;color:inherit">▶ Open on YouTube ↗</a></div>`:u?`<div class=drop style="cursor:default;border-color:#e5484d"><b>That doesn't look like a YouTube link</b><small>Try a link like https://youtu.be/abc123XYZ_0</small></div>`:`<div class=drop style="cursor:default">🎬<b>ADD YOUR VIDEO HERE</b><small>Paste a YouTube link below.</small></div>`}
+el.innerHTML=id?`<div class=ytw><iframe src="https://www.youtube-nocookie.com/embed/${id}" title="Video ${n}" loading=lazy allow="accelerometer;encrypted-media;picture-in-picture;fullscreen" allowfullscreen></iframe></div><div class=row><a class=b2 href="https://www.youtube.com/watch?v=${id}" target=_blank rel=noopener style="text-decoration:none;color:inherit">${ic('play',13)} Open on YouTube ↗</a></div>`:u?`<div class=drop style="cursor:default;border-color:#e5484d"><b>That doesn't look like a YouTube link</b><small>Try a link like https://youtu.be/abc123XYZ_0</small></div>`:`<div class=drop style="cursor:default">${ic('video',30)}<b>ADD YOUR VIDEO HERE</b><small>Paste a YouTube link below.</small></div>`}
 document.addEventListener('input',e=>{const k=e.target.dataset?.k;if(k&&/^vu\d$/.test(k))setTimeout(()=>ytr(+k.slice(2)),0)});
 function noteCard(n,k,i){if(n[0]=='Debugging'||n[0]=='Exception Handling')return'';const key=`n${i}_${k}`,H=LS.get('hide',{})[key]||{},
-ana=`<div class=ana><div class=row style="justify-content:space-between"><b>💡 Analogy</b><button class=b2 data-h=${key}:a>✕ Remove Analogy</button></div><div class=g2><textarea class=sm data-k=${key}a placeholder="Write your analogy here (a real-life comparison)..."></textarea><div class=media data-m=${key}q></div></div></div>`,
-pic=`<div><div class=row style="justify-content:flex-end"><button class=b2 data-h=${key}:p>✕ Remove Picture</button></div><div class=media data-m=${key}p></div></div>`,
-code=`<div><div class=row style="justify-content:flex-end"><button class=b2 data-h=${key}:e>✕ Remove Example</button></div><textarea class=code style="min-height:130px" data-k=${key}e spellcheck=false placeholder="// Type your example here"></textarea></div>`,
+ana=`<div class=ana><div class=row style="justify-content:space-between"><b>${ic('bulb',16)} Analogy</b><button class=b2 data-h=${key}:a>${ic('x',12)} Remove Analogy</button></div><div class=g2><textarea class=sm data-k=${key}a placeholder="Write your analogy here (a real-life comparison)..."></textarea><div class=media data-m=${key}q></div></div></div>`,
+pic=`<div><div class=row style="justify-content:flex-end"><button class=b2 data-h=${key}:p>${ic('x',12)} Remove Picture</button></div><div class=media data-m=${key}p></div></div>`,
+code=`<div><div class=row style="justify-content:flex-end"><button class=b2 data-h=${key}:e>${ic('x',12)} Remove Example</button></div><textarea class=code style="min-height:130px" data-k=${key}e spellcheck=false placeholder="// Type your example here"></textarea></div>`,
 add=(H.a?`<button class=b2 data-s=${key}:a>+ Add Analogy</button>`:'')+(H.p?`<button class=b2 data-s=${key}:p>+ Add Example Picture</button>`:'')+(H.e?`<button class=b2 data-s=${key}:e>+ Add Example Code</button>`:'');
 return`<div class="card note"><h3>${n[0]}</h3><textarea class=sm data-k=${key}t placeholder="Write what you know about ${n[0]}..."></textarea>${H.a?'':ana}<div class="${H.p||H.e?'':'g2'}">${H.p?'':pic}${H.e?'':code}</div>${add?`<div class=row>${add}</div>`:''}</div>`}
-function topic(i){const t=T[i],dn=LS.get('done',[]);let h=`<button class=b2 id=bk>← Back to Table of Contents</button><div class=hd><small>SECTION 0${i+1} / 07</small><h1>${t.t}</h1><span class=sv>● Saved on this device</span><button class=b2 id=dn>${dn.includes(i)?'✓ Completed':'Mark as Completed'}</button></div>`;
+function topic(i){const t=T[i],dn=LS.get('done',[]);let h=`<button class=b2 id=bk>← Back to Table of Contents</button><div class=hd><small>SECTION 0${i+1} / 07</small><h1>${t.t}</h1><span class=sv>● Saved on this device</span><button class=b2 id=dn>${dn.includes(i)?ic('check',14)+' Completed':'Mark as Completed'}</button></div>`;
 if(i==6){h+=`<h2>YOUR EXERCISES</h2><div class=g2>${[1,2,3,4].map(n=>`<div class=card><label>Question ${n}</label><textarea class=sm style="min-height:150px" data-k=q${n} placeholder="Add your question here..."></textarea></div>`).join('')}</div><h2>VIDEO EXPLANATIONS</h2><div class=g2>${[1,2,3,4].map(n=>`<div class=card><label>Video ${n}</label><div class=yt id=yt${n}></div><label>YouTube link</label><input data-k=vu${n} placeholder="Paste your YouTube link here (https://youtu.be/...)"><input data-k=vt${n} placeholder="Video title" style="margin-top:8px"><textarea class=sm data-k=vd${n} placeholder="Description" style="margin-top:8px"></textarea></div>`).join('')}</div>`}
 else{h+=`${i==0?`<div class=flow><div><small>INPUT</small><b>Scanner</b><span>What the user types in</span><code>input.nextLine()</code></div><i>→</i><div><small>PROCESS</small><b>Your program</b><span>Stores it in a variable</span><code>String name</code></div><i>→</i><div><small>OUTPUT</small><b>System.out</b><span>What shows on the screen</span><code>println(name)</code></div></div><div class=fd><input id=fdin placeholder="Type a name to try it" maxlength=20 autocomplete=off><button class=bg id=fdgo>Send it through</button></div>`:''}<h2>LESSON NOTES</h2><p class=mut>What You Need to Know — write your own notes under each heading.</p>${t.notes.map((n,k)=>noteCard(n,k,i)).join('')}
 <h2>INTERACTIVE JAVA LAB</h2><div class="card labcard"><div><b>Try it yourself</b><p class=mut>Open the sandbox, change the values, and watch the Java code and the output change.</p></div><button class=bg id=ol>▶ OPEN JAVA LAB</button></div>
 <h2>PICTURE EXAMPLES</h2><div id=exs></div><button class=bg id=ae>+ Add Example</button>`}
-h+=`<div class=row style="margin-top:30px;justify-content:space-between"><button class=b2 id=pv ${i?'':'disabled'}>← Previous Topic</button><button class=b2 onclick="show('toc')">All Topics</button>${i<6?'<button class=b2 id=nx>Next Topic →</button>':'<button class=bg id=nx>🎮 Go to Java Game →</button>'}</div>`;
+h+=`<div class=row style="margin-top:30px;justify-content:space-between"><button class=b2 id=pv ${i?'':'disabled'}>← Previous Topic</button><button class=b2 onclick="show('toc')">All Topics</button>${i<6?'<button class=b2 id=nx>Next Topic →</button>':'<button class=bg id=nx>'+ic('gamepad',18)+' Go to Java Game →</button>'}</div>`;
 $('#topic').innerHTML=h;$('#topic').dataset.i=i;show('topic');fill($('#topic'));ro($('#topic'));
 $('#bk').onclick=()=>show('toc');$('#pv').onclick=()=>topic(i-1);$('#nx').onclick=()=>i<6?topic(i+1):show('game');
-$('#dn').onclick=()=>{let d=LS.get('done',[]);d=d.includes(i)?d.filter(x=>x!=i):[...d,i];LS.set('done',d);$('#dn').textContent=d.includes(i)?'✓ Completed':'Mark as Completed';if(d.includes(i)){confetti();if(d.length==7)setTimeout(()=>okM('🎉 All 7 topics complete!','Amazing work. You finished every topic and the exercise.'),900)}};
+$('#dn').onclick=()=>{let d=LS.get('done',[]);d=d.includes(i)?d.filter(x=>x!=i):[...d,i];LS.set('done',d);$('#dn').innerHTML=d.includes(i)?ic('check',14)+' Completed':'Mark as Completed';if(d.includes(i)){confetti();if(d.length==7)setTimeout(()=>okM(ic('trophy',22)+' All 7 topics complete!','Amazing work. You finished every topic and the exercise.'),900)}};
 document.querySelectorAll('#topic .media').forEach(hyd);if(i==6)[1,2,3,4].forEach(ytr);
 if(i==6)return;
 $('#ol').onclick=()=>openLab(i);
@@ -662,16 +727,16 @@ if(W.ob)obstacle(x,W.ob);cockpit(x);
 x.fillStyle=rg(x,480,270,620,[[.55,'rgba(0,0,0,0)'],[1,'rgba(0,0,0,.45)']]);x.fillRect(-10,-10,980,560);x.restore()}
 function upd(dt){const o=W.ob;if(o){if(o.pass)o.pass=Math.min(1,o.pass+dt/1.3);else o.t=Math.min(.9,o.t+dt/5)}const k=Math.min(1,dt*3);W.ro+=(W.rt-W.ro)*k;W.sx+=(W.st-W.sx)*k}
 function loop(ts){const cv=$('#cv');if(!cv)return;if(!$('#game').classList.contains('on')||ts-(loop.d||0)<32){raf=requestAnimationFrame(loop);return}loop.d=ts;const dt=Math.min(.05,(ts-(lt||ts))/1000);lt=ts;GT+=dt;upd(dt);draw(cv.getContext('2d',{alpha:false}));raf=requestAnimationFrame(loop)}
-function gameMenu(){$('#game').innerHTML=`<div class="card end">${MAS('wave',96)}<h1>✈ JAVA SKY ESCAPE</h1><p>You're in the cockpit. Answer Java questions to steer around obstacles. Two mistakes and you're out!</p><button class=bg id=gs>START FLIGHT</button></div>`;$('#gs').onclick=gameStart}
+function gameMenu(){$('#game').innerHTML=`<div class="card end">${MAS('wave',96)}<h1>${ic('plane',30)} JAVA SKY ESCAPE</h1><p>You're in the cockpit. Answer Java questions to steer around obstacles. Two mistakes and you're out!</p><button class=bg id=gs>START FLIGHT</button></div>`;$('#gs').onclick=gameStart}
 function gameStart(){cancelAnimationFrame(raf);G={qs:sh(QB).slice(0,10),i:0,s:0,m:0,miss:[]};W={ob:null,ro:0,rt:0,sx:0,st:0,warn:0};lt=0;$('#game').innerHTML=`<h2>JAVA SKY ESCAPE</h2><div id=stats></div><div id=gw><div id=msg></div><canvas id=cv width=640 height=360></canvas></div><div class="card q" id=qa></div>`;nextQ();raf=requestAnimationFrame(loop)}
 function stats(){$('#stats').innerHTML=`<span>Question: ${Math.min(G.i+1,10)} / 10</span><span>Score: ${G.s}</span><span>Mistakes: ${G.m} / 2</span>`}
 function nextQ(){if(G.i>=10)return endG(1);stats();const q=G.qs[G.i],o=OB[Math.floor(Math.random()*5)];W.ob={k:o[0],t:0,pass:0,dir:1};W.rt=0;W.st=0;$('#cv').className='';$('#msg').textContent=`AVOID THE ${o[1]}!`;
 const opts=sh(q.slice(1).map((t,k)=>({t,r:!k})));$('#qa').innerHTML=`<b>${q[0]}</b>`+opts.map((p,k)=>`<button data-k=${k}>${'ABCD'[k]}. ${p.t}</button>`).join('');
 $('#qa').querySelectorAll('button').forEach(b=>b.onclick=()=>{const p=opts[b.dataset.k];$('#qa').querySelectorAll('button').forEach((x,k)=>{x.disabled=true;if(opts[k].r)x.classList.add('ok')});const L=Math.random()<.5;W.ob.pass=.001;
 if(p.r){G.s++;W.warn=0;$('#msg').innerHTML='CORRECT!<br>STEERING '+(L?'LEFT!':'RIGHT!');$('#cv').className=L?'tl':'tr';W.rt=L?-.35:.35;W.st=L?90:-90;W.ob.dir=L?1:-1}
-else{b.classList.add('no');G.m++;W.warn=1;$('#msg').innerHTML=`INCORRECT! ⚠ WARNING!<br>MISTAKES: ${G.m} / 2`}
+else{b.classList.add('no');G.m++;W.warn=1;$('#msg').innerHTML=`INCORRECT! ${ic('alert',20)} WARNING!<br>MISTAKES: ${G.m} / 2`}
 stats();const xi=QB.indexOf(q);if(!p.r)G.miss.push({q:q[0],a:q[1],x:EX[xi]});$('#qa').insertAdjacentHTML('beforeend',`<div class="xp ${p.r?'ok':'no'}"><b>${p.r?'Correct!':'Not quite.'}</b> ${EX[xi]}</div><button class=bg id=nxq>${G.m>=2?'See Results →':G.i>=9?'Finish →':'Next →'}</button>`);$('#nxq').onclick=()=>{if(G.m>=2)endG(0);else{G.i++;nextQ()}}})}
-function endG(w){$('#game').innerHTML=w?`<div class="card end">${MAS('cheer',104)}<h1>JAVA SKY ESCAPE COMPLETE!</h1><p>You made it safely through the sky!</p><h2>10 / 10 QUESTIONS SURVIVED</h2><p style="font-size:30px">☁️ ✈️ ☁️ { } ; 7 ☁️</p>${miss()}<div class=row style="justify-content:center"><button class=bg id=a>PLAY AGAIN</button><button class=b2 id=b>RETURN TO REVIEW</button></div></div>`:`<div class="card end">${MAS('oops',96)}<h2>JAVA SKY ESCAPE</h2><h1>YOU LOST!</h1><p>You made too many mistakes.</p><h2>FINAL SCORE: ${G.s} / 10</h2>${miss()}<div class=row style="justify-content:center"><button class=bg id=a>TRY AGAIN</button><button class=b2 id=b>RETURN TO REVIEW</button></div></div>`;$('#a').onclick=gameStart;$('#b').onclick=()=>show('toc')}
+function endG(w){$('#game').innerHTML=w?`<div class="card end">${MAS('cheer',104)}<h1>JAVA SKY ESCAPE COMPLETE!</h1><p>You made it safely through the sky!</p><h2>10 / 10 QUESTIONS SURVIVED</h2><p class=endrow>${ic('cloud',32)}${ic('plane',32)}${ic('cloud',32)}<span>{ } ; 7</span>${ic('cloud',32)}</p>${miss()}<div class=row style="justify-content:center"><button class=bg id=a>PLAY AGAIN</button><button class=b2 id=b>RETURN TO REVIEW</button></div></div>`:`<div class="card end">${MAS('oops',96)}<h2>JAVA SKY ESCAPE</h2><h1>YOU LOST!</h1><p>You made too many mistakes.</p><h2>FINAL SCORE: ${G.s} / 10</h2>${miss()}<div class=row style="justify-content:center"><button class=bg id=a>TRY AGAIN</button><button class=b2 id=b>RETURN TO REVIEW</button></div></div>`;$('#a').onclick=gameStart;$('#b').onclick=()=>show('toc')}
 $('#topic').addEventListener('click',e=>{const b=e.target.closest('[data-h],[data-s]');if(!b)return;const [k,w]=(b.dataset.h||b.dataset.s).split(':'),H=LS.get('hide',{});H[k]={...H[k],[w]:!!b.dataset.h};LS.set('hide',H);const y=scrollY;topic(+$('#topic').dataset.i);scrollTo(0,y)});
 $('#toc').addEventListener('click',e=>{if(e.target.id=='bk1')exportAll();if(e.target.id=='bk3')exportAll(true);if(e.target.id=='bk4')exportSite();if(e.target.id=='bk2')importAll()});
 initLab();if(window.__SEED)document.body.classList.add('view');
