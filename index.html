@@ -536,6 +536,7 @@ kbd{font:600 12px 'IBM Plex Mono',monospace;background:var(--soft2);border-radiu
 .gpad [data-d=U]{grid-area:u}.gpad [data-d=L]{grid-area:l}.gpad [data-d=D]{grid-area:d}.gpad [data-d=R]{grid-area:r}
 @media(pointer:coarse),(max-width:900px){.gpad{display:grid}}
 .gm.asking .gpad{display:none}
+.view .gform input:placeholder-shown,.view .dm input:placeholder-shown{display:inline-block}
 @media(max-width:1000px){.gm.asking .gbody{grid-template-columns:1fr}}
 @media(max-width:900px){.gmenu{grid-template-columns:1fr}.gk li>span:first-child{min-width:0}.gk li{flex-wrap:wrap}.gstg{max-width:92%}}
 </style>
@@ -805,7 +806,7 @@ if(i==3)return`<h2>INTERACTIVE EXAMPLE</h2><div class=dm id=dm><div class=dmr><l
 if(i==4)return`<h2>INTERACTIVE EXAMPLE</h2><div class=dm id=dm><div class=dmr><label>Start<input id=l_a type=number value=1></label><label>Condition<select id=l_c><option value="<=">&lt;=</option><option value="<">&lt;</option></select></label><label>End<input id=l_b type=number value=5></label><label>Update<select id=l_u><option>i++</option><option>i += 2</option><option>i--</option></select></label></div><pre class=cd id=l_code></pre><div class=dmr><button type=button class=bg id=l_play>${ic('play',14)} Play</button><button type=button class=b2 id=l_step>Step</button><button type=button class=b2 id=l_rs>Reset</button><span class=dmcnt id=l_i></span></div><div class=lchips id=l_ch aria-live=polite></div><p class=dmf id=l_f></p></div>`;
 if(i==5)return`<h2>INTERACTIVE EXAMPLE</h2><div class=dm id=dm><div class=dmr><label>a<input id=e_a type=number value=10></label><label>b<input id=e_b type=number value=0></label><label class=chk><input type=checkbox id=e_s> Remove the first semicolon</label><button type=button class=bg id=e_run>${ic('play',14)} Run</button></div><pre class=cd id=e_code></pre><div class=eflow id=e_f><span data-s=try>try</span><i>→</i><span data-s=catch>catch</span><i>→</i><span data-s=out>output</span></div><div class=dmo id=e_o></div></div>`;
 return''}
-function initDemo(i){const D=$('#dm');if(!D)return;
+function initDemo(i){const D=$('#dm');if(!D)return;D.querySelectorAll('input,textarea').forEach(e=>e.readOnly=false);
 if(i==1)demoOps();if(i==2)demoVars();if(i==3)demoIf();if(i==4)demoLoop();if(i==5)demoErr()}
 function demoOps(){const g=s=>$('#'+s);
 const run=()=>{const t=g('o_t').value,op=g('o_o').value,A=g('o_a').value.trim(),B=g('o_b').value.trim(),re=t=='int'?/^-?\d+$/:/^-?\d+(\.\d+)?$/,aok=re.test(A),bok=re.test(B);
