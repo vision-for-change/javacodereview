@@ -200,6 +200,22 @@ nav{padding:10px 12px;flex-wrap:nowrap;overflow-x:auto}nav b{margin-right:8px;wh
 #topic h2{margin-top:36px}.note{margin-bottom:32px}
 .box{padding:24px}
 }
+/* polish: content blocks */
+.cd,textarea.code,#out{background:#0c1d33}
+textarea{resize:vertical;field-sizing:content;max-height:70vh}
+textarea.sm{min-height:76px!important}
+textarea.code{min-height:calc(4.5em + 32px)!important}
+.ana{background:none;padding:0;margin:20px 0 28px}
+.ana>.row b{color:#f5a54a}
+.ana .g2:has(>.media:not(:has(img,video))){grid-template-columns:1fr}
+.view .g2:has(>.media:has(.drop)),.view .g2:has(>div>.media:has(.drop)){grid-template-columns:1fr}
+.note .g2{align-items:start;gap:20px 28px}
+.media img,.media video{box-shadow:none;background:#0c1d33}
+.media:has(img,video){background:var(--soft);border-radius:16px;padding:14px;display:flow-root}
+.media:has(img,video) img,.media:has(img,video) video{margin:0 auto}
+.media .row{justify-content:center;margin:10px 0 0}
+#exs>.card{margin-bottom:44px}
+#exs>.card>.row b{font-size:20px;letter-spacing:-.01em}
 </style>
 <nav><b>☕ Java<span>Review</span></b><button data-v="home">Home</button><button data-v="toc">Table of Contents</button><button data-v="game">Java Game</button></nav>
 <main>
