@@ -212,19 +212,24 @@ nav{padding:10px 12px;flex-wrap:nowrap;overflow-x:auto}nav b{margin-right:8px;wh
 .flow span{display:block;color:var(--mut);font-size:14px}
 .flow code{display:inline-block;margin-top:12px;font:13px 'JetBrains Mono',monospace;background:#0c1d33;color:#7fe0c3;padding:5px 12px;border-radius:9px}
 .flow i{font-style:normal;color:var(--ac2);font-size:28px}
-#topic[data-i="0"] .note{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);grid-template-rows:1fr auto auto 1fr;column-gap:56px;margin-bottom:64px;align-items:start}
+#topic[data-i="0"] .note{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);grid-template-rows:1fr auto auto 1fr 56px 1fr auto auto 1fr;column-gap:56px;margin-bottom:72px;align-items:start}
 #topic[data-i="0"] .note>h3{grid-column:1;grid-row:2;font-size:28px}
 #topic[data-i="0"] .note>textarea{grid-column:1;grid-row:3;font-size:17px}
-#topic[data-i="0"] .note>.ana{display:block;grid-column:2;grid-row:1/5;align-self:center;margin:0}
-#topic[data-i="0"] .note>.g2,#topic[data-i="0"] .note>.row:last-child,#topic[data-i="0"] .note>div:last-child:not(.ana):not(.row){display:none}
-#topic[data-i="0"] .ana>.g2{display:grid;grid-template-columns:1fr;gap:14px}
-#topic[data-i="0"] .ana>.g2>textarea,#topic[data-i="0"] .ana>.g2>.media{grid-column:auto;grid-row:auto;align-self:auto}
-#topic[data-i="0"] .ana>.row{margin:0 0 10px}
+#topic[data-i="0"] .note>div:not(.ana){grid-column:2;grid-row:1/5;align-self:center;grid-template-columns:1fr}
+#topic[data-i="0"] .note>.g2>div:last-child{display:none}
+#topic[data-i="0"] .note>.row{display:none}
+#topic[data-i="0"] .note>.ana,#topic[data-i="0"] .ana>.g2{display:contents}
+#topic[data-i="0"] .ana>.row{grid-column:1;grid-row:7;margin:0 0 10px}
+#topic[data-i="0"] .ana>.g2>textarea{grid-column:1;grid-row:8;font-size:17px}
+#topic[data-i="0"] .ana>.g2>.media{grid-column:2;grid-row:6/10;align-self:center}
 #topic[data-i="0"] .ana .media img{max-height:340px}
+#topic[data-i="0"] #exs label:has(+textarea[data-k$="c"]),#topic[data-i="0"] #exs textarea[data-k$="c"]{display:none}
 @media(max-width:820px){
 .flow{grid-template-columns:1fr;padding:24px 20px}.flow i{transform:rotate(90deg);justify-self:center}
-#topic[data-i="0"] .note{display:block;margin-bottom:48px}
-#topic[data-i="0"] .note>.ana{margin-top:24px}
+#topic[data-i="0"] .note{display:flex;flex-direction:column;margin-bottom:48px}
+#topic[data-i="0"] .note>div:not(.ana){order:2;margin-top:20px}
+#topic[data-i="0"] .note>.ana{display:block;order:3;margin-top:28px}
+#topic[data-i="0"] .ana>.g2{display:grid;grid-template-columns:1fr;gap:12px}
 }
 /* analogy: label sits directly above its text, centred against the picture */
 .ana{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:1fr auto auto 1fr;column-gap:28px;align-items:start}
