@@ -73,7 +73,6 @@ label{font-weight:700;font-size:13px;letter-spacing:1px;text-transform:uppercase
 textarea:focus,input:focus{outline:2px solid var(--ac);outline-offset:1px}#sr{animation:pu 2.4s infinite}@keyframes pu{50%{box-shadow:0 0 0 14px #2b7bd122}}
 nav button:hover{background:var(--line)}nav button.on:hover{background:var(--ac)}
 .xp{text-align:left;border-radius:12px;padding:12px;margin:10px 0;background:var(--bg);border:2px solid var(--line);font-size:15px}.xp.ok{border-color:#2bb673}.xp.no{border-color:#e5484d}.about{max-width:560px;margin:30px auto 0;position:relative;text-align:left}.about .row input{flex:1;min-width:140px}
-.ana{background:rgba(245,166,74,.12);border:1px dashed #f5a54a;border-radius:14px;padding:12px;margin:12px 0}
 .labcard{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;background:linear-gradient(135deg,#0d1117,#10264a);color:#e6edf3;border-color:#2f3b52}.labcard .mut{color:#9fb3c8;margin:4px 0 0}
 #lab{position:fixed;inset:0;z-index:15;display:none;place-items:center;background:rgba(3,8,20,.78);padding:2vh 2vw}#lab.on{display:grid}
 .lbx{width:min(1240px,100%);height:min(880px,100%);background:#0d1117;color:#e6edf3;border:1px solid #2f3b52;border-radius:18px;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 30px 80px #000a;position:relative}
@@ -124,10 +123,7 @@ button:focus-visible{outline:2px solid var(--ac);outline-offset:2px}
 [data-h]:hover,[data-s]:hover,[data-del]:hover{background:var(--soft)!important;color:var(--fg)}
 /* sections instead of boxes */
 .card{background:none;border:0;border-radius:0;box-shadow:none;padding:0;margin:0 0 28px}
-.note{border:0;margin:0 0 36px;counter-increment:nt}
 #topic{counter-reset:nt}
-.note h3{display:flex;align-items:baseline;gap:12px;font-size:22px;font-weight:600;margin:0 0 16px}
-.note h3:before{content:counter(nt,decimal-leading-zero);font:600 13px 'IBM Plex Mono',monospace;color:var(--ac)}
 #topic h2{display:block;margin:44px 0 16px;font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ac)}
 #topic h2:before{display:none}
 #topic h2+p.mut{margin:-10px 0 28px}
@@ -165,7 +161,6 @@ label{font-size:12px;font-weight:600;letter-spacing:.1em;margin:20px 0 6px}
 .drop{border:0;background:var(--tint);border-radius:9px;padding:38px 10px;transition:background .2s}
 .drop:hover{background:color-mix(in srgb,var(--ac) 14%,transparent)}
 .media img,.media video{border-radius:8px;box-shadow:var(--lift)}
-.ana{background:var(--tint);border:0;border-radius:10px;padding:18px 20px;margin:26px 0}
 .ytw{border-radius:8px}
 .labcard{background:var(--tint);color:var(--fg);border:0;border-radius:12px;padding:22px 26px;margin:0 0 28px}
 .labcard .mut{color:var(--mut)}
@@ -206,8 +201,6 @@ nav{padding:10px 12px;flex-wrap:nowrap;overflow-x:auto}nav b{margin-right:8px;wh
 .box{padding:24px}
 }
 /* image + text balance: centre text against tall media */
-#topic .note>.g2,#topic .ana .g2{align-items:center}
-.ana textarea{font-size:18px;line-height:1.6}
 .media img,.media video{max-height:72vh;object-fit:contain}
 /* Input & Output: guided flow + two-column lessons */
 .flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:center;gap:8px 20px;margin:32px 0 0;padding:30px 28px;border-radius:13px;background:var(--tint)}
@@ -217,43 +210,20 @@ nav{padding:10px 12px;flex-wrap:nowrap;overflow-x:auto}nav b{margin-right:8px;wh
 .flow span{display:block;color:var(--mut);font-size:14px}
 .flow code{display:inline-block;margin-top:12px;font:13px 'IBM Plex Mono',monospace;background:var(--code);color:#7fd0bd;padding:5px 12px;border-radius:6px}
 .flow i{font-style:normal;color:var(--ac2);font-size:28px}
-#topic .note{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);grid-template-rows:1fr auto auto 1fr 56px 1fr auto auto 1fr;column-gap:56px;margin-bottom:72px;align-items:start}
-#topic .note>h3{grid-column:1;grid-row:2;font-size:26px}
-#topic .note>textarea{grid-column:1;grid-row:3;font-size:17px}
-#topic .note>div:not(.ana){grid-column:2;grid-row:1/5;align-self:center;grid-template-columns:1fr}
 
 
-#topic .note>.ana,#topic .ana>.g2{display:contents}
-#topic .ana>.row{grid-column:1;grid-row:7;margin:0 0 10px}
-#topic .ana>.g2>textarea{grid-column:1;grid-row:8;font-size:17px}
-#topic .ana>.g2>.media{grid-column:2;grid-row:6/10;align-self:center}
-#topic .ana .media img{max-height:340px}
 
 @media(max-width:820px){
 .flow{grid-template-columns:1fr;padding:24px 20px}.flow i{transform:rotate(90deg);justify-self:center}
-#topic .note{display:flex;flex-direction:column;margin-bottom:48px}
-#topic .note>div:not(.ana){order:2;margin-top:20px}
-#topic .note>.ana{display:block;order:3;margin-top:28px}
-#topic .ana>.g2{display:grid;grid-template-columns:1fr;gap:12px}
 }
 /* analogy: label sits directly above its text, centred against the picture */
-.ana{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:1fr auto auto 1fr;column-gap:28px;align-items:start}
-.ana>.row{grid-column:1;grid-row:2;margin:0 0 10px}
-.ana>.g2{display:contents}
-.ana>.g2>textarea{grid-column:1;grid-row:3}
-.ana>.g2>.media{grid-column:2;grid-row:1/5;align-self:center}
-.ana:not(:has(.media img,.media video,.media .drop)),.view .ana:not(:has(img,video)){grid-template-columns:1fr}
 @media(max-width:820px){.ana{display:block}.ana>.g2{display:grid;grid-template-columns:1fr;gap:12px}}
 /* polish: content blocks */
 .cd,textarea.code,#out{background:var(--code)}
 textarea{resize:vertical;field-sizing:content;max-height:70vh}
 textarea.sm{min-height:76px!important}
 textarea.code{min-height:calc(4.5em + 32px)!important}
-.ana{background:none;padding:0;margin:20px 0 28px}
-.ana>.row b{color:var(--ac2)}
-.ana .g2:has(>.media:not(:has(img,video))){grid-template-columns:1fr}
 .view .g2:has(>.media:has(.drop)),.view .g2:has(>div>.media:has(.drop)){grid-template-columns:1fr}
-.note .g2{align-items:start;gap:20px 28px}
 .media img,.media video{box-shadow:none;background:var(--code)}
 .media:has(img,video){background:var(--soft);border-radius:9px;padding:14px;display:flow-root}
 .media:has(img,video) img,.media:has(img,video) video{margin:0 auto}
@@ -386,10 +356,8 @@ nav b .ic{color:var(--ac);margin-right:8px;vertical-align:-4px}
 main{padding:20px 24px 48px}
 .hd{margin:18px 0 4px}
 #topic h2{margin:32px 0 14px}
-.note{margin-bottom:28px}
 .labcard{margin-bottom:20px}
 .card{margin-bottom:22px}
-#topic .note{margin-bottom:40px;column-gap:40px;grid-template-rows:1fr auto auto 1fr 28px 1fr auto auto 1fr}
 .pg{margin:10px 0 24px}
 .grid{gap:2px 28px}
 .tc{padding:14px 16px}
@@ -447,15 +415,129 @@ main{padding:20px 24px 48px}
 .hd .sv{margin:0}
 .uc>.row:last-child{margin-top:36px!important;padding-top:0}
 /* single column fallback when a lesson note has no media to show (read-only view) */
-.view #topic .note:not(:has(.g2 .media img,.g2 .media video,.g2 textarea.code:not(:placeholder-shown))){display:block}
-.view #topic .note:not(:has(.g2 .media img,.g2 .media video,.g2 textarea.code:not(:placeholder-shown)))>.ana{display:grid}
 /* add-back buttons (only when something was removed) */
-#topic .note>.row:last-child{grid-column:1/-1;grid-row:10;margin:10px 0 0}
 /* Input & Output only: the code boxes stay out of the notes */
-#topic[data-i="0"] .note>.g2>div:last-child{display:none}
-#topic[data-i="0"] .note>.row{display:none}
 #topic[data-i="0"] #exs label:has(+textarea[data-k$="c"]),#topic[data-i="0"] #exs textarea[data-k$="c"]{display:none}
 @media(max-width:900px){#topic .ul{display:block}#topic .un{display:none}}
+
+/* ===== Pass 5: unit demonstrations and the plane adventure ===== */
+.dm{margin:0 0 20px}
+.dmr{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:flex-end;margin:10px 0}
+.dmr>label{flex:1 1 130px;min-width:110px;margin:0}
+.dmr input,.dmr select{margin-top:4px}
+.dmr .chk{flex:0 0 auto;display:flex;align-items:center;gap:8px;text-transform:none;letter-spacing:0;font-size:14px;font-weight:500;color:var(--fg);padding-bottom:12px}
+.dmr .chk input{width:auto;margin:0;accent-color:var(--ac)}
+input[type=range]{padding:0;background:none;accent-color:var(--ac);height:30px}
+.dm output{color:var(--ac);font-family:'IBM Plex Mono',monospace;font-weight:600}
+.dm input.bad{box-shadow:0 0 0 2px #e5484d99!important}
+.dm input.good{box-shadow:0 0 0 2px color-mix(in srgb,var(--ac) 55%,transparent)}
+.dm pre.cd{margin:10px 0;white-space:pre-wrap}
+.cd .cerr{display:block;margin-top:8px;color:#ff9b93;font:13px 'IBM Plex Sans',sans-serif;white-space:normal}
+.cd .cerr .ic{margin-right:6px}
+.dmo{display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin:10px 0}
+.dmo .dmf{flex:1 1 260px}
+.res{font:600 38px 'IBM Plex Mono',monospace;color:var(--ac);min-width:96px;overflow-wrap:anywhere}
+.res.bump,.vcell.bump,.vm.bump{animation:bumpk .4s var(--ease)}
+@keyframes bumpk{from{opacity:.25;transform:translateY(8px) scale(.97)}}
+.dmf{margin:8px 0;min-height:1.6em;line-height:1.55}
+.dmi{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;margin-right:8px;vertical-align:-5px;background:color-mix(in srgb,var(--ac) 18%,transparent);color:var(--ac)}
+.dmi.bad{background:rgba(229,72,77,.16);color:#ff8a80}
+.dmi .ic{margin:0}
+.dots{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:6px}
+.dots i{width:14px;height:14px;border-radius:50%;background:var(--ac);animation:pop .3s backwards}
+.dots i.rem{background:var(--ac2)}
+.dots u{width:12px}
+.dots small{flex-basis:100%;color:var(--mut)}
+.vpre{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 6px}
+.vpre small{color:var(--mut);font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;margin-right:4px}
+.vnote{color:var(--mut);margin:4px 0 0}
+.vgrid{display:grid;grid-template-columns:180px minmax(0,1fr);gap:18px;align-items:center;margin:10px 0}
+.vm{display:flex;flex-direction:column;gap:6px}
+.vtag{font:600 13px 'IBM Plex Mono',monospace;color:var(--ac)}
+.vcell{background:var(--tint);border-radius:10px;padding:10px 14px;min-height:80px;display:flex;flex-direction:column;justify-content:space-between;gap:6px;overflow:hidden}
+.vcell.bad{background:rgba(229,72,77,.14)}
+.vty{font:12px 'IBM Plex Mono',monospace;color:var(--mut)}
+.vval{font:600 26px 'IBM Plex Mono',monospace;word-break:break-all;display:block}
+.vval.swap{animation:swapin .45s var(--ease)}
+@keyframes swapin{from{opacity:0;transform:translateY(16px)}}
+.vt{border-collapse:separate;border-spacing:0 4px;width:100%}
+.vt th{text-align:left;font:600 12px 'IBM Plex Sans',sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);padding:2px 10px}
+.vt td{padding:10px;font:14px 'IBM Plex Mono',monospace;background:var(--soft);overflow-wrap:anywhere}
+.vt td:first-child{border-radius:8px 0 0 8px}.vt td:last-child{border-radius:0 8px 8px 0}
+.vt td.bad{color:#ff9b93}
+.cbr{display:flex;flex-direction:column;gap:6px;margin:10px 0}
+.cb{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) minmax(0,1.2fr);gap:12px;align-items:center;padding:10px 12px;border-radius:8px;background:var(--soft);transition:background .3s,opacity .3s}
+.cb code{font:13px 'IBM Plex Mono',monospace;white-space:normal}
+.cb.run{background:color-mix(in srgb,var(--ac) 18%,transparent);box-shadow:inset 3px 0 0 var(--ac)}
+.cb.no,.cb.skip{opacity:.5}
+.cb .ev{font-size:13px;color:var(--mut)}
+.tv{display:inline-block;padding:2px 8px;border-radius:5px;font:12px 'IBM Plex Mono',monospace;margin:2px 6px 2px 0;background:var(--soft2)}
+.tv.t{color:var(--ac)}.tv.f{color:#ff9b93}
+.lchips{display:flex;flex-wrap:wrap;gap:8px;min-height:42px;margin:8px 0}
+.lc{font:600 16px 'IBM Plex Mono',monospace;padding:6px 14px;background:var(--soft2);border-radius:6px;animation:pop .3s backwards}
+.lc.cur{background:var(--btn);color:#fff}
+.dmcnt{font:13px 'IBM Plex Mono',monospace;color:var(--mut);margin-left:6px}
+.eflow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:8px 0}
+.eflow span{padding:8px 18px;background:var(--soft);border-radius:6px;font:600 14px 'IBM Plex Mono',monospace;transition:background .3s,color .3s,opacity .3s}
+.eflow span.on,.eflow span.ok{background:color-mix(in srgb,var(--ac) 22%,transparent);color:var(--ac)}
+.eflow span.err{background:rgba(229,72,77,.2);color:#ff9b93}
+.eflow span.skip{opacity:.35}
+.eflow i{font-style:normal;color:var(--mut);transition:color .3s}.eflow i.on{color:var(--ac)}
+@media(max-width:700px){.vgrid{grid-template-columns:1fr}.vt{display:block;overflow-x:auto}.cb{grid-template-columns:1fr}}
+/* plane adventure */
+.gmenu{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:36px;align-items:center;padding:12px 0}
+.gml h1{font-size:clamp(28px,4vw,42px);font-weight:600;letter-spacing:-.025em;margin:.3em 0 .2em}
+.gml h3{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ac);margin:22px 0 8px}
+.gk{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+.gk li{display:flex;gap:12px;align-items:center;color:var(--mut)}.gk li>span:first-child{min-width:170px;color:var(--fg)}
+kbd{font:600 12px 'IBM Plex Mono',monospace;background:var(--soft2);border-radius:5px;padding:2px 7px;margin-right:3px}
+.gmap{list-style:none;margin:0;padding:0}
+.gmap li{display:grid;grid-template-columns:40px 1fr;gap:12px;align-items:center;padding:9px 0}
+.gmap .n{font:500 18px 'IBM Plex Mono',monospace;color:var(--ac)}
+.gmap .ot b{display:block;font-size:16px;font-weight:600}.gmap .ot small{color:var(--mut);font-size:13px}
+.ghud{display:flex;justify-content:space-between;gap:14px;align-items:center;flex-wrap:wrap;margin:0 0 10px}
+.gtrack{list-style:none;display:flex;gap:6px;margin:0;padding:0;flex:1 1 260px}
+.gtrack li{flex:1;height:30px;position:relative;display:flex;align-items:center;justify-content:center;font:600 12px 'IBM Plex Mono',monospace;color:var(--mut);background:var(--soft);border-radius:6px;overflow:hidden;isolation:isolate}
+.gtrack li:before{content:"";position:absolute;inset:0;background:color-mix(in srgb,var(--ac) 28%,transparent);transform:scaleX(var(--p));transform-origin:left;transition:transform .5s var(--ease);z-index:-1}
+.gtrack li.cur{color:var(--fg)}.gtrack li.done{color:var(--ac)}.gtrack .ic{margin:0}
+.gstat{display:flex;align-items:center;gap:14px}
+.ghl{display:flex;gap:3px;color:var(--ac)}.ghl .lost{opacity:.25}.ghl .ic{margin:0}
+.gsc{font:600 15px 'IBM Plex Mono',monospace;display:flex;gap:6px;align-items:center}.gsc .ic{margin:0}
+.gbody{display:grid;grid-template-columns:minmax(0,1fr);gap:18px;align-items:start}
+.gm.asking .gbody{grid-template-columns:minmax(0,1.15fr) minmax(300px,1fr)}
+.gcv{position:relative;width:min(100%,calc(62vh*2));margin:0 auto}
+.gcv canvas{display:block;width:100%;aspect-ratio:2/1;border-radius:12px;background:#14232a;touch-action:none}
+.gstg{position:absolute;left:14px;top:12px;opacity:0;transform:translateY(-6px);transition:opacity .4s,transform .4s var(--ease);pointer-events:none;background:rgba(10,14,16,.72);color:#e8e9eb;padding:8px 12px;border-radius:8px;max-width:78%}
+.gstg.show{opacity:1;transform:none}
+.gstg small{display:block;font:600 11px 'IBM Plex Sans',sans-serif;letter-spacing:.12em;color:#7fd0bd}.gstg b{display:block;font-size:16px}.gstg span{display:block;font-size:12px;opacity:.8}
+.gps{position:absolute;inset:0;display:grid;place-items:center;background:rgba(10,14,16,.72);border-radius:12px;text-align:center;color:#e8e9eb}.gps[hidden]{display:none}
+.gps .b2{color:#e8e9eb;background:#2a2e33}
+.gq{min-width:0;animation:pop .3s var(--ease)}.gq[hidden]{display:none}
+.gqh{display:flex;gap:12px;align-items:center;margin-bottom:8px}
+.gqh small{display:block;font:600 11px 'IBM Plex Sans',sans-serif;letter-spacing:.12em;color:var(--ac)}.gqh b{font-size:18px}
+.gqn{margin-left:auto;font:13px 'IBM Plex Mono',monospace;color:var(--mut)}
+.gqq{font-size:17px;line-height:1.5;margin:8px 0}
+.gq .cd{margin:8px 0}
+.gopts{display:grid;gap:8px;margin:10px 0}
+.gopt{display:flex;gap:12px;align-items:center;text-align:left;width:100%;background:var(--soft);border:0;border-radius:8px;padding:12px 14px;color:var(--fg);font:14px 'IBM Plex Mono',monospace;transition:background .2s}
+.gopt span{flex:none;width:24px;height:24px;border-radius:5px;background:var(--soft2);display:grid;place-items:center;font:600 12px 'IBM Plex Sans',sans-serif}
+.gopt:hover:not(:disabled){background:var(--soft2)}
+.gopt.ok{background:color-mix(in srgb,#2bb673 22%,transparent)}.gopt.no{background:rgba(229,72,77,.18)}
+.gopt:disabled{cursor:default}
+.gform{display:flex;gap:10px;margin:10px 0}.gform input{flex:1}
+.gfb{margin:10px 0;line-height:1.55}
+.gfb.ok .ic{color:#2bb673}.gfb.no .ic{color:#ff9b93}
+.gfb em{display:block;margin-top:6px;color:var(--mut);font-style:normal;font-size:14px}
+.gchips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}.gchips span{background:var(--tint);color:var(--ac);padding:4px 10px;border-radius:6px;font-size:13px}.gchips .ic{margin-right:4px}
+.gres{width:100%;border-collapse:collapse;margin:10px 0}.gres td{padding:7px 8px;font-size:14px}.gres tr:nth-child(odd){background:var(--soft)}
+.gbar{display:block;height:6px;background:var(--soft2);border-radius:3px;overflow:hidden;min-width:80px}.gbar i{display:block;height:100%;background:var(--ac)}
+.gpad{display:none;grid-template-columns:repeat(3,58px);grid-template-areas:". u ." "l d r";gap:8px;justify-content:center;margin:14px 0 0;touch-action:none;user-select:none}
+.gpad button{width:58px;height:58px;border:0;border-radius:10px;background:var(--soft2);color:var(--fg);display:grid;place-items:center;touch-action:none}.gpad button:active{background:var(--btn);color:#fff}.gpad .ic{margin:0}
+.gpad [data-d=U]{grid-area:u}.gpad [data-d=L]{grid-area:l}.gpad [data-d=D]{grid-area:d}.gpad [data-d=R]{grid-area:r}
+@media(pointer:coarse),(max-width:900px){.gpad{display:grid}}
+.gm.asking .gpad{display:none}
+@media(max-width:1000px){.gm.asking .gbody{grid-template-columns:1fr}}
+@media(max-width:900px){.gmenu{grid-template-columns:1fr}.gk li>span:first-child{min-width:0}.gk li{flex-wrap:wrap}.gstg{max-width:92%}}
 </style>
 <nav><b><svg class="ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9h11v5a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5zM16 10h1.5a2.5 2.5 0 0 1 0 5H16M8 3.5c0 1 .8 1.3.8 2.3M12 3.5c0 1 .8 1.3.8 2.3"/></svg> Java<span>Review</span></b><button data-v="home">Home</button><button data-v="toc">Table of Contents</button><button data-v="game">Java Game</button></nav>
 <main>
@@ -506,15 +588,14 @@ function initBit(){const w=document.createElement('div');w.id='bit';w.hidden=tru
 w.innerHTML=`<div id=bitb class=bub role=status aria-live=polite></div><button id=bitbtn type=button aria-label="Bit the helper. Click for a tip.">${MAS('idle',64)}</button>`;document.body.appendChild(w);
 const tips=['Open the Java Lab on a lesson to run code and change values.','Mark a topic as completed to track your progress.','Your notes are saved on this device as you type.'];let ti=0;
 $('#bitbtn').onclick=()=>say(tips[ti++%tips.length],'happy',4200);
-const upd=()=>{w.hidden=$('#home').classList.contains('on')};new MutationObserver(upd).observe($('main'),{attributes:true,subtree:true,attributeFilter:['class']});upd();
+const upd=()=>{w.hidden=$('#home').classList.contains('on')||$('#game').classList.contains('on')};new MutationObserver(upd).observe($('main'),{attributes:true,subtree:true,attributeFilter:['class']});upd();
 document.addEventListener('pointerenter',e=>{const m=e.target.closest&&e.target.closest('.mas');if(m&&m.dataset.mood=='idle')setMood(m,'wave',1300)},true);
 document.addEventListener('click',e=>{const t=e.target;
 const m=t.closest('.mas');if(m&&!t.closest('#bitbtn'))setMood(m,'happy',1400);
 if(t.closest('#fdgo'))runFlow();
 if(t.closest('#dn')){setTimeout(()=>{const b=$('#dn');if(!b)return;const d=LS.get('done',[]).length,ok=b.textContent.trim().startsWith('Completed');b.classList.toggle('done',ok);unitSide();if(ok)say(d==7?'All 7 topics done. Brilliant work!':d?`Topic complete! ${d} of 7 done.`:'Topic complete!','cheer',3800)},0);return}
 if(t.closest('.tc,#nx,#pv')){setTimeout(()=>{const tp=$('#topic');if(tp.classList.contains('on'))say(`Section 0${+tp.dataset.i+1}: ${T[+tp.dataset.i].t}`,'wave',2600)},60);return}
-if(t.closest('#gs,#a')){say('Good luck!','wave',2200);return}
-const q=t.closest('#qa button[data-k]');if(q)setTimeout(()=>{if(q.classList.contains('ok'))say('Correct!','happy',2200);else if(q.classList.contains('no'))say('Not quite. Check the explanation.','oops',3200)},0)});
+});
 document.addEventListener('click',e=>{const o=e.target.closest&&e.target.closest('[data-oi]');if(o)topic(+o.dataset.oi)});
 document.addEventListener('keydown',e=>{if(e.target.id=='fdin'&&e.key=='Enter')runFlow()});
 document.addEventListener('focusin',e=>{if(e.target.id=='fdin')e.target.readOnly=false});
@@ -681,15 +762,9 @@ function ytId(u){const m=(u||'').trim().match(/(?:youtu\.be\/|youtube\.com\/(?:w
 function ytr(n){const el=$('#yt'+n);if(!el)return;const u=(LS.get('t:vu'+n,'')||'').trim(),id=ytId(u);
 el.innerHTML=id?`<div class=ytw><iframe src="https://www.youtube-nocookie.com/embed/${id}" title="Video ${n}" loading=lazy allow="accelerometer;encrypted-media;picture-in-picture;fullscreen" allowfullscreen></iframe></div><div class=row><a class=b2 href="https://www.youtube.com/watch?v=${id}" target=_blank rel=noopener style="text-decoration:none;color:inherit">${ic('play',13)} Open on YouTube ↗</a></div>`:u?`<div class=drop style="cursor:default;border-color:#e5484d"><b>That doesn't look like a YouTube link</b><small>Try a link like https://youtu.be/abc123XYZ_0</small></div>`:`<div class=drop style="cursor:default">${ic('video',30)}<b>ADD YOUR VIDEO HERE</b><small>Paste a YouTube link below.</small></div>`}
 document.addEventListener('input',e=>{const k=e.target.dataset?.k;if(k&&/^vu\d$/.test(k))setTimeout(()=>ytr(+k.slice(2)),0)});
-function noteCard(n,k,i){if(n[0]=='Debugging'||n[0]=='Exception Handling')return'';const key=`n${i}_${k}`,H=LS.get('hide',{})[key]||{},
-ana=`<div class=ana><div class=row style="justify-content:space-between"><b>${ic('bulb',16)} Analogy</b><button class=b2 data-h=${key}:a>${ic('x',12)} Remove Analogy</button></div><div class=g2><textarea class=sm data-k=${key}a placeholder="Write your analogy here (a real-life comparison)..."></textarea><div class=media data-m=${key}q></div></div></div>`,
-pic=`<div><div class=row style="justify-content:flex-end"><button class=b2 data-h=${key}:p>${ic('x',12)} Remove Picture</button></div><div class=media data-m=${key}p></div></div>`,
-code=`<div><div class=row style="justify-content:flex-end"><button class=b2 data-h=${key}:e>${ic('x',12)} Remove Example</button></div><textarea class=code style="min-height:130px" data-k=${key}e spellcheck=false placeholder="// Type your example here"></textarea></div>`,
-add=(H.a?`<button class=b2 data-s=${key}:a>+ Add Analogy</button>`:'')+(H.p?`<button class=b2 data-s=${key}:p>+ Add Example Picture</button>`:'')+(H.e?`<button class=b2 data-s=${key}:e>+ Add Example Code</button>`:'');
-return`<div class="card note"><h3>${n[0]}</h3><textarea class=sm data-k=${key}t placeholder="Write what you know about ${n[0]}..."></textarea>${H.a?'':ana}<div class="${H.p||H.e?'':'g2'}">${H.p?'':pic}${H.e?'':code}</div>${add?`<div class=row>${add}</div>`:''}</div>`}
 function topic(i){const t=T[i],dn=LS.get('done',[]);let h=`<button class=b2 id=bk>← Back to Table of Contents</button><div class=hd><small>SECTION 0${i+1} / 07</small><h1>${t.t}</h1><span class=sv>● Saved on this device</span><button class=b2 id=dn>${dn.includes(i)?ic('check',14)+' Completed':'Mark as Completed'}</button></div>`;
 if(i==6){h+=`<h2>YOUR EXERCISES</h2><div class=g2>${[1,2,3,4].map(n=>`<div class=card><label>Question ${n}</label><textarea class=sm style="min-height:150px" data-k=q${n} placeholder="Add your question here..."></textarea></div>`).join('')}</div><h2>VIDEO EXPLANATIONS</h2><div class=g2>${[1,2,3,4].map(n=>`<div class=card><label>Video ${n}</label><div class=yt id=yt${n}></div><label>YouTube link</label><input data-k=vu${n} placeholder="Paste your YouTube link here (https://youtu.be/...)"><input data-k=vt${n} placeholder="Video title" style="margin-top:8px"><textarea class=sm data-k=vd${n} placeholder="Description" style="margin-top:8px"></textarea></div>`).join('')}</div>`}
-else{h+=`${i==0?`<div class=flow><div><small>INPUT</small><b>Scanner</b><span>What the user types in</span><code>input.nextLine()</code></div><i>→</i><div><small>PROCESS</small><b>Your program</b><span>Stores it in a variable</span><code>String name</code></div><i>→</i><div><small>OUTPUT</small><b>System.out</b><span>What shows on the screen</span><code>println(name)</code></div></div><div class=fd><input id=fdin placeholder="Type a name to try it" maxlength=20 autocomplete=off><button class=bg id=fdgo>Send it through</button></div>`:''}<h2>LESSON NOTES</h2><p class=mut>What You Need to Know — write your own notes under each heading.</p>${t.notes.map((n,k)=>noteCard(n,k,i)).join('')}
+else{h+=`${i==0?`<div class=flow><div><small>INPUT</small><b>Scanner</b><span>What the user types in</span><code>input.nextLine()</code></div><i>→</i><div><small>PROCESS</small><b>Your program</b><span>Stores it in a variable</span><code>String name</code></div><i>→</i><div><small>OUTPUT</small><b>System.out</b><span>What shows on the screen</span><code>println(name)</code></div></div><div class=fd><input id=fdin placeholder="Type a name to try it" maxlength=20 autocomplete=off><button class=bg id=fdgo>Send it through</button></div>`:''}${demoHTML(i)}
 <h2>INTERACTIVE JAVA LAB</h2><div class="card labcard"><div><b>Try it yourself</b><p class=mut>Open the sandbox, change the values, and watch the Java code and the output change.</p></div><button class=bg id=ol>▶ OPEN JAVA LAB</button></div>
 <h2>PICTURE EXAMPLES</h2><div id=exs></div><button class=bg id=ae>+ Add Example</button>`}
 h+=`<div class=row style="margin-top:30px;justify-content:space-between"><button class=b2 id=pv ${i?'':'disabled'}>← Previous Topic</button><button class=b2 onclick="show('toc')">All Topics</button>${i<6?'<button class=b2 id=nx>Next Topic →</button>':'<button class=bg id=nx>'+ic('gamepad',18)+' Go to Java Game →</button>'}</div>`;
@@ -704,71 +779,9 @@ fill($('#exs'));ro($('#exs'));$('#exs').querySelectorAll('.media').forEach(hyd);
 $('#ae').onclick=()=>{LS.set('ex'+i,[...LS.get('ex'+i,[]),'e'+Date.now()]);rx()};rx()}
 /* ---- game ---- */
 const QB=[["Which statement prints text and then moves to a new line?","System.out.println()","System.out.print()","System.out.write()","System.out.line()"],["Which Scanner method reads a whole number?","nextInt()","nextLine()","nextDouble()","nextWhole()"],["What is 17 % 5?","2","3","12","0"],["What does int x = 7 / 2; store?","3","3.5","4","2"],["Which data type stores true or false?","boolean","int","String","char"],["Which line declares a decimal variable?","double price = 4.5;","int price = 4.5;","String price = 4.5;","decimal price = 4.5;"],["Which operator means AND?","&&","||","!","=="],["What does x != 5 test?","x is not equal to 5","x equals 5","x is less than 5","x is set to 5"],["How many times does for (int i = 0; i < 3; i++) run?","3","2","4","0"],["Which keyword exits a loop early?","break","stop","exit","end"],["A missing semicolon is which type of error?","Syntax error","Logical error","Rounding error","Input error"],["The program runs but gives a wrong answer. This is a...","Logical error","Syntax error","Typing error","Compile error"],["Which block handles an exception?","catch","case","else","break"],["What does System.out.println(\"Hi\" + 5 + 3); print?","Hi53","Hi8","8Hi","Error"],["What is 2 + 3 * 4?","14","20","24","9"],["What is x after int x = 5; x++;?","6","5","7","4"],["Which correctly creates a Scanner?","Scanner s = new Scanner(System.in);","Scanner s = Scanner(System.in);","new Scanner = s(System.in);","Scanner s = new System.in();"],["When does a while loop stop?","When its condition becomes false","After exactly 10 times","When println runs","It never stops"],["What does System.out.print(\"A\"); System.out.print(\"B\"); show?","AB","A and B on two lines","BA","Nothing"],["Which Scanner method reads a decimal number?","nextDouble()","nextInt()","nextLine()","nextDecimal()"],["What is 10 % 3?","1","3","0","10"],["What is 9 / 2 when both are ints?","4","4.5","5","0"],["Which type should store 3.14?","double","int","boolean","char"],["Which type stores a single letter like 'A'?","char","String","int","boolean"],["Which is a correct String declaration?","String name = \"Sam\";","string name = \"Sam\";","String name = 'Sam';","String name = Sam;"],["What does (int) 9.99 give?","9","10","9.99","9.0"],["What does x += 3 do?","Adds 3 to x","Sets x to 3","Subtracts 3 from x","Compares x to 3"],["Which operator means OR?","||","&&","!","=="],["Which operator flips true to false?","!","&&","||","=="],["What does == check?","If two values are equal","Assigns a value","Adds two values","Prints a value"],["Which keyword runs when an if condition is false?","else","then","otherwise","elif"],["Which keyword stops a switch case from falling through?","break","stop","end","exit"],["int x = 10; what happens with if (x > 5 && x < 8)?","The block is skipped","The block runs","Compile error","x becomes 8"],["How many times does int i = 1; while (i < 4) { i++; } loop?","3","4","2","1"],["What does for (int i = 1; i <= 3; i++) System.out.print(i); print?","123","12","321","3"],["Which part of a for loop changes the counter?","The update, like i++","The condition","The start value","The println"],["What happens with while (true) and no break?","It runs forever","It runs once","It never runs","Compile error"],["Dividing an int by zero throws which exception?","ArithmeticException","SyntaxException","MathError","DivideNothing"],["Which keyword starts the code that might cause an exception?","try","catch","finally","switch"],["What does e.getMessage() return?","The error message text","The line number","The variable value","The program output"],["Forgetting a closing bracket causes a...","Syntax error","Logical error","Rounding error","Input error"],["What does System.out.println(5 + 3 + \"Hi\"); print?","8Hi","53Hi","Hi8","Error"],["What is 2 * (3 + 4)?","14","10","24","9"],["Which variable name is valid?","myScore","2score","my score","my-score"],["Which keyword creates a new object?","new","make","create","build"],["What does nextLine() return?","A line of text","A whole number","A decimal","A boolean"]];
-const OB=[['rock','ROCK'],['bird','BIRD'],['deb','DEBRIS'],['bal','BALLOON'],['cld','STORM CLOUD']];
-const SP={rock:{p:['','#2f3042','#7c7e98','#b5b7d0'],m:['..1111..','.122221.','12222221','12233221','12232221','.122221.','..1111..']},bird:{p:['','#1b1b2e','#ff7a3d','#fff'],m:['1......1','11....11','.11..11.','..1221..','...11...']},deb:{p:['','#555a70','#c9a227','#8be9fd'],m:['33.11.33','33.12.33','33.11.33','..1111..','...11...']},bal:{p:['','#ff3d6e','#ff9ab5','#fff'],m:['..1111..','.122111.','12211111','11111111','11111111','.111111.','..1111..','...11...','....3...','....3...']},cld:{p:['','#4a4e6e','#7a7fa8','#a0a5cc'],m:['...111..','.1112211','11222221','12222222','11222221','.1111111']}};
 const sh=a=>{a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
 const EX=["println() prints and then moves to a new line; print() stays on the same line.","nextInt() reads a whole number; nextLine() reads text.","% gives the remainder: 17 divided by 5 is 3 with 2 left over.","Two ints divide as whole numbers, so the .5 is dropped and the answer is 3.","boolean stores only true or false.","double holds decimal numbers, and the line ends with a semicolon.","&& means AND (both must be true); || means OR.","!= means 'not equal to'.","i is 0, 1, and 2, so the loop repeats 3 times.","break exits the loop immediately.","Breaking Java's grammar rules is a syntax error, and the program will not run.","If the program runs but gives a wrong result, it is a logical error.","catch handles an exception that was thrown inside try.","Java joins left to right: 'Hi' + 5 gives Hi5, then + 3 gives Hi53.","Multiplication comes first: 3 * 4 = 12, then 2 + 12 = 14.","x++ adds 1 to x, so 5 becomes 6.","new Scanner(System.in) creates a Scanner that reads from the keyboard.","A while loop keeps repeating until its condition becomes false.","print() does not move to a new line, so the output is AB.","nextDouble() reads a decimal number.","10 divided by 3 is 3 with a remainder of 1.","Whole-number division drops the decimal part, so 9 / 2 is 4.","3.14 has a decimal, so it needs a double.","char holds one character written in single quotes.","String has a capital S and uses double quotes.","Casting to int cuts off the decimals (it does not round), so you get 9.","x += 3 is short for x = x + 3.","|| means OR: only one side has to be true.","The ! operator flips true to false and false to true.","== compares two values; a single = assigns a value.","else runs when the if condition is false.","Without break, a switch keeps running into the next case.","10 is greater than 5 but not less than 8. Both sides of && must be true, so the block is skipped.","i is 1, 2, and 3. When i becomes 4, i < 4 is false, so it repeats 3 times.","The loop prints 1, 2, and 3 with no spaces between them: 123.","The update (like i++) changes the counter after each repeat.","The condition is always true, so without a break it never ends.","Dividing an int by zero throws an ArithmeticException.","Code that might cause an exception goes inside try.","getMessage() returns the text that describes the error.","A missing bracket breaks Java's grammar, so it is a syntax error.","Left to right: 5 + 3 is 8 first, then 'Hi' is joined to make 8Hi.","Brackets first: 3 + 4 is 7, then 2 * 7 is 14.","Variable names cannot start with a number or contain spaces or dashes.","The new keyword creates a new object.","nextLine() returns a whole line of text as a String."];
-const miss=()=>G.miss.length?`<h3>Questions to Review</h3>`+G.miss.map(m=>`<div class=xp><b>${m.q}</b><br>Answer: ${m.a}<br>${m.x}</div>`).join(''):'';
-let G,W,GT=0,raf,lt=0;
-const CW=960,VP=250,TAU=6.283;
-const rg=(x,a,b,r,st)=>{const g=x.createRadialGradient(a,b,0,a,b,r);st.forEach(t=>g.addColorStop(t[0],t[1]));return g};
-const lg=(x,x0,y0,x1,y1,st)=>{const g=x.createLinearGradient(x0,y0,x1,y1);st.forEach(t=>g.addColorStop(t[0],t[1]));return g};
-function cloud(x,cx,cy,s,a){x.save();x.globalAlpha=a;[[0,0,1],[.9,-.15,.9],[-.9,-.1,.85],[.3,-.5,.8],[1.6,.05,.65],[-1.6,.05,.65]].forEach(b=>{const px=cx+b[0]*s*30,py=cy+b[1]*s*30,r=b[2]*s*30;x.fillStyle=rg(x,px,py,r,[[0,'rgba(255,255,255,.95)'],[.6,'rgba(250,252,255,.7)'],[1,'rgba(255,255,255,0)']]);x.fillRect(px-r,py-r,r*2,r*2)});x.fillStyle=rg(x,cx,cy+s*16,s*44,[[0,'rgba(110,130,170,.28)'],[1,'rgba(110,130,170,0)']]);x.fillRect(cx-s*44,cy-s*28,s*88,s*88);x.restore()}
-function ridge(x,base,amp,seed,par,c1,c2){x.beginPath();x.moveTo(-10,VP);for(let i=-10;i<=CW+10;i+=8){const u=i+W.sx*par+seed;x.lineTo(i,base-Math.abs(Math.sin(u*.008)*amp+Math.sin(u*.023)*amp*.45+Math.sin(u*.061)*amp*.12))}x.lineTo(CW+10,VP);x.closePath();x.fillStyle=lg(x,0,base-amp,0,VP,[[0,c1],[1,c2]]);x.fill()}
-function obstacle(x,o){const sc=.25+o.t*1.5+o.pass*2.2,u=50*sc,k=o.k,cx=480+W.sx*1.4+o.pass*o.dir*620+(k=='bird'?Math.sin(GT*1.5)*200*(1-o.pass):0),cy=235+o.t*70;
-x.save();x.globalAlpha=Math.max(0,1-o.pass*1.1);x.translate(cx,cy);
-if(k=='rock'){x.rotate(GT*.35);const R=[1,.85,1.1,.9,1.05,.8,1.1,.95,.9];x.beginPath();R.forEach((r,i)=>{const a=i/R.length*TAU;x[i?'lineTo':'moveTo'](Math.cos(a)*r*u,Math.sin(a)*r*u*.9)});x.closePath();x.fillStyle=rg(x,-u*.35,-u*.4,u*1.4,[[0,'#b3b3bd'],[.5,'#6d6e7c'],[1,'#2c2d38']]);x.fill();x.strokeStyle='rgba(0,0,0,.35)';x.lineWidth=Math.max(1,u*.04);x.beginPath();x.moveTo(-u*.3,-u*.5);x.lineTo(-u*.1,-u*.1);x.lineTo(-u*.35,u*.25);x.moveTo(u*.2,-u*.4);x.lineTo(u*.35,0);x.stroke()}
-else if(k=='bird'){const a=Math.sin(GT*9)*.7;x.fillStyle='#2b2420';[-1,1].forEach(d=>{x.beginPath();x.moveTo(0,0);x.quadraticCurveTo(d*u*.7,-u*(.5+a),d*u*1.7,-u*(.1+a*.6));x.quadraticCurveTo(d*u*.8,u*.1,0,u*.35);x.fill()});x.fillStyle='#3d332c';x.beginPath();x.ellipse(0,u*.1,u*.28,u*.4,0,0,TAU);x.fill();x.fillStyle='#d8cfc4';x.beginPath();x.ellipse(0,u*.2,u*.16,u*.25,0,0,TAU);x.fill();x.fillStyle='#3d332c';x.beginPath();x.arc(0,-u*.35,u*.17,0,TAU);x.fill();x.fillStyle='#f2a53a';x.beginPath();x.moveTo(-u*.05,-u*.4);x.lineTo(0,-u*.62);x.lineTo(u*.05,-u*.4);x.fill()}
-else if(k=='deb'){x.rotate(GT*1.2);x.fillStyle=lg(x,-u,-u*.6,u,u*.6,[[0,'#d5d9e2'],[.5,'#8d93a3'],[1,'#4b505e']]);x.beginPath();x.moveTo(-u,-u*.6);x.lineTo(u*.7,-u*.6);x.lineTo(u,-u*.2);x.lineTo(u,u*.6);x.lineTo(-u,u*.6);x.closePath();x.fill();x.fillStyle=rg(x,u*.3,u*.1,u*.5,[[0,'rgba(30,20,10,.6)'],[1,'rgba(30,20,10,0)']]);x.fillRect(-u,-u*.6,u*2,u*1.2);x.fillStyle='#3a3e4a';[-.8,-.4,0,.4,.8].forEach(i=>{[-.45,.45].forEach(j=>{x.beginPath();x.arc(i*u,j*u,u*.05,0,TAU);x.fill()})})}
-else if(k=='bal'){x.rotate(Math.sin(GT)*.05);x.beginPath();x.ellipse(0,-u*.2,u*.8,u,0,0,TAU);x.fillStyle=rg(x,-u*.25,-u*.6,u*1.1,[[0,'#ff8a8a'],[1,'#b3202a']]);x.fill();x.save();x.clip();x.fillStyle='#ffd23f';x.fillRect(-u*.5,-u*1.3,u*.28,u*2);x.fillRect(u*.22,-u*1.3,u*.28,u*2);x.restore();x.strokeStyle='#4a3520';x.lineWidth=Math.max(1,u*.03);x.beginPath();x.moveTo(-u*.45,u*.5);x.lineTo(-u*.18,u*1.1);x.moveTo(u*.45,u*.5);x.lineTo(u*.18,u*1.1);x.stroke();x.fillStyle='#8a5a2b';x.fillRect(-u*.2,u*1.1,u*.4,u*.25)}
-else{[[0,0,1.3],[1,.2,1],[-1,.2,1],[.4,-.6,1]].forEach(b=>{const px=b[0]*u,py=b[1]*u,r=b[2]*u*1.1;x.fillStyle=rg(x,px,py,r,[[0,'rgba(40,46,64,.95)'],[.7,'rgba(70,78,100,.8)'],[1,'rgba(90,100,125,0)']]);x.fillRect(px-r,py-r,r*2,r*2)});if(Math.floor(GT*3)%5==0){x.strokeStyle='#fff7c2';x.lineWidth=Math.max(2,u*.06);x.beginPath();x.moveTo(0,0);x.lineTo(-u*.2,u*.4);x.lineTo(u*.1,u*.45);x.lineTo(-u*.15,u*.95);x.stroke()}}
-x.restore()}
-function bezel(x,cx,cy,r){x.fillStyle=lg(x,cx-r,cy-r,cx+r,cy+r,[[0,'#d6d9e2'],[.5,'#7c8191'],[1,'#2e313d']]);x.beginPath();x.arc(cx,cy,r+8,0,TAU);x.fill()}
-function glint(x,cx,cy,r){x.fillStyle='rgba(255,255,255,.07)';x.beginPath();x.ellipse(cx-r*.2,cy-r*.45,r*.65,r*.35,-.4,0,TAU);x.fill()}
-function dial(x,cx,cy,r,lab,v,N,col){bezel(x,cx,cy,r);x.fillStyle=rg(x,cx,cy,r,[[0,'#10131c'],[1,'#03040a']]);x.beginPath();x.arc(cx,cy,r,0,TAU);x.fill();x.strokeStyle='#cfd3de';x.fillStyle='#e6e9f2';x.textAlign='center';x.font=`${r*.22}px IBM Plex Sans,sans-serif`;
-for(let i=0;i<=30;i++){const a=(-225+i*9)*Math.PI/180,mj=i%5==0,r1=r*(mj?.78:.86);x.lineWidth=mj?2:1;x.beginPath();x.moveTo(cx+Math.cos(a)*r1,cy+Math.sin(a)*r1);x.lineTo(cx+Math.cos(a)*r*.94,cy+Math.sin(a)*r*.94);x.stroke();if(mj)x.fillText(i/5*N,cx+Math.cos(a)*r*.6,cy+Math.sin(a)*r*.6+r*.08)}
-x.fillStyle='#8a90a6';x.font=`${r*.2}px IBM Plex Sans,sans-serif`;x.fillText(lab,cx,cy+r*.5);x.save();x.translate(cx,cy);x.rotate((-225+v*270)*Math.PI/180);x.fillStyle=col;x.fillRect(-r*.1,-1.5,r*.85,3);x.restore();x.fillStyle='#222';x.beginPath();x.arc(cx,cy,r*.08,0,TAU);x.fill();glint(x,cx,cy,r)}
-function hor(x,cx,cy,r){bezel(x,cx,cy,r);x.save();x.beginPath();x.arc(cx,cy,r,0,TAU);x.clip();x.translate(cx,cy);x.rotate(-W.ro);x.fillStyle='#3b8fe8';x.fillRect(-r*2,-r*2,r*4,r*2);x.fillStyle='#7a5230';x.fillRect(-r*2,0,r*4,r*2);x.fillStyle='#fff';x.fillRect(-r*2,-1,r*4,2);x.strokeStyle='#fff';x.lineWidth=1;[-2,-1,1,2].forEach(k=>{const w=r*(Math.abs(k)==2?.3:.18);x.beginPath();x.moveTo(-w,k*r*.22);x.lineTo(w,k*r*.22);x.stroke()});x.restore();x.strokeStyle='#ffb020';x.lineWidth=3;x.beginPath();x.moveTo(cx-r*.6,cy);x.lineTo(cx-r*.2,cy);x.lineTo(cx,cy+r*.15);x.lineTo(cx+r*.2,cy);x.lineTo(cx+r*.6,cy);x.stroke();glint(x,cx,cy,r)}
-function cockpit(x){const L=(x0,y0,x1,y1,a,b)=>lg(x,x0,y0,x1,y1,[[0,a],[1,b]]);
-x.fillStyle=L(0,0,120,0,'#101219','#2d3040');x.beginPath();x.moveTo(-10,0);x.lineTo(120,0);x.lineTo(50,400);x.lineTo(-10,400);x.fill();
-x.fillStyle=L(970,0,840,0,'#101219','#2d3040');x.beginPath();x.moveTo(970,0);x.lineTo(840,0);x.lineTo(910,400);x.lineTo(970,400);x.fill();
-x.strokeStyle='#505670';x.lineWidth=3;x.beginPath();x.moveTo(120,0);x.lineTo(50,400);x.moveTo(840,0);x.lineTo(910,400);x.stroke();
-x.fillStyle=L(0,0,0,56,'#0e1017','#2b2e3d');x.fillRect(-10,-10,980,66);x.fillStyle='#4a4f68';x.fillRect(-10,54,980,3);
-for(let i=0;i<12;i++){x.fillStyle=i%3?'#3ee0a0':'#ffb020';x.beginPath();x.arc(300+i*30,28,4,0,TAU);x.fill();x.fillStyle='#1a1c26';x.fillRect(293+i*30,38,14,8)}
-x.fillStyle='rgba(120,170,220,.05)';x.fillRect(0,56,960,330);x.fillStyle=L(150,0,420,400,'rgba(255,255,255,0)','rgba(255,255,255,.1)');x.beginPath();x.moveTo(190,60);x.lineTo(300,60);x.lineTo(170,390);x.lineTo(70,390);x.fill();x.fillStyle='rgba(255,255,255,.05)';x.beginPath();x.moveTo(320,60);x.lineTo(345,60);x.lineTo(225,390);x.lineTo(200,390);x.fill();
-x.fillStyle=L(0,380,0,424,'#2f3243','#0f1017');x.fillRect(-10,380,980,46);x.fillStyle='rgba(255,255,255,.15)';x.fillRect(-10,381,980,2);
-x.fillStyle=L(0,424,0,550,'#262938','#0c0d14');x.fillRect(-10,424,980,130);x.fillStyle='rgba(255,255,255,.03)';for(let y=428;y<540;y+=6)x.fillRect(-10,y,980,1);
-dial(x,95,482,44,'KNOTS',.55+.02*Math.sin(GT),40,'#ffb020');hor(x,215,482,44);dial(x,745,482,44,'HDG',(.3-W.sx*.002+GT*.01)%1,60,'#5ef2c8');dial(x,865,482,44,'ALT',(GT*.05)%1,2,'#ff5e8a');
-for(let i=0;i<6;i++){[['#5ef2c8','#ffb020','#ff5e8a'][i%3]].forEach(c=>{x.fillStyle='#14151c';x.fillRect(300+i*16,436,12,22);x.fillStyle=c;x.fillRect(303+i*16,i%2?440:448,6,8);x.fillStyle='#14151c';x.fillRect(570+i*16,436,12,22);x.fillStyle=c;x.fillRect(573+i*16,i%2?448:440,6,8)})}
-const on=W.warn&&Math.floor(GT*4)%2;x.fillStyle=L(0,430,0,462,'#9aa0b4','#3a3e4c');x.beginPath();x.arc(480,446,18,0,TAU);x.fill();if(on){x.fillStyle=rg(x,480,446,70,[[0,'rgba(255,50,50,.55)'],[1,'rgba(255,50,50,0)']]);x.fillRect(400,376,160,140)}x.fillStyle=on?rg(x,478,443,14,[[0,'#ffd0d0'],[.4,'#ff2b2b'],[1,'#a00']]):rg(x,478,443,14,[[0,'#7a2020'],[1,'#3a0a0a']]);x.beginPath();x.arc(480,446,13,0,TAU);x.fill();
-x.save();x.translate(480+W.ro*90,520);x.rotate(W.ro*.5);x.lineCap='round';x.lineJoin='round';x.fillStyle=L(-12,0,12,0,'#3a3d4c','#15161d');x.fillRect(-12,30,24,50);
-const yk=()=>{x.beginPath();x.moveTo(-100,-50);x.lineTo(-100,0);x.quadraticCurveTo(-100,34,-60,34);x.lineTo(60,34);x.quadraticCurveTo(100,34,100,0);x.lineTo(100,-50)};
-x.strokeStyle='#14151b';x.lineWidth=20;yk();x.stroke();x.strokeStyle='#4b5066';x.lineWidth=3;x.save();x.translate(-4,-4);yk();x.stroke();x.restore();
-x.fillStyle='#0b0c10';x.fillRect(-111,-84,22,50);x.fillRect(89,-84,22,50);x.strokeStyle='#2a2d38';x.lineWidth=1;for(let i=0;i<5;i++){x.beginPath();x.moveTo(-111,-78+i*9);x.lineTo(-89,-78+i*9);x.moveTo(89,-78+i*9);x.lineTo(111,-78+i*9);x.stroke()}x.restore()}
-function draw(x){x.save();x.scale(2/3,2/3);x.textBaseline='alphabetic';if(W.warn)x.translate(Math.random()*6-3,Math.random()*6-3);else x.translate(0,Math.sin(GT*55)*.5);
-x.fillStyle=lg(x,0,0,0,VP,[[0,'#0b4fa8'],[.45,'#3e8fe3'],[.8,'#a8d3f3'],[1,'#f1e4c6']]);x.fillRect(-10,-10,980,VP+10);
-x.fillStyle=rg(x,690+W.sx*.25,110,280,[[0,'rgba(255,252,235,1)'],[.04,'rgba(255,246,200,.95)'],[.12,'rgba(255,236,170,.45)'],[1,'rgba(255,230,160,0)']]);x.fillRect(0,0,960,VP);
-ridge(x,VP,60,0,.3,'#8fa3c4','#a7b8d0');ridge(x,VP+8,36,400,.6,'#5f7aa0','#7f98b8');
-x.fillStyle=lg(x,0,VP,0,420,[[0,'#a9c3a0'],[.15,'#6f9a62'],[1,'#2c5a2c']]);x.fillRect(-10,VP,980,180);
-for(let r=0;r<14;r++){const p=((r+GT*.9)%14)/14;x.fillStyle=r%2?'rgba(255,255,200,.07)':'rgba(0,40,0,.1)';x.fillRect(-10,VP+p*p*170,980,Math.max(1,p*p*60))}
-x.strokeStyle='rgba(255,255,255,.07)';x.lineWidth=2;for(let k=-12;k<=12;k++){x.beginPath();x.moveTo(480+k*10+W.sx*.5,VP);x.lineTo(480+k*150+W.sx,420);x.stroke()}
-x.fillStyle=lg(x,0,VP-20,0,VP+40,[[0,'rgba(241,228,198,0)'],[.4,'rgba(241,228,198,.55)'],[1,'rgba(241,228,198,0)']]);x.fillRect(-10,VP-20,980,60);
-for(let i=0;i<7;i++){const p=(GT/8+i/7)%1,bx=[-380,-200,-70,110,300,430,-300][i],by=[-110,-160,-70,-150,-90,-30,-30][i];cloud(x,480+bx*p*2.1+W.sx*p,VP+by*p*1.7,.25+p*2.3,Math.min(1,p*5)*(1-Math.max(0,p-.8)*5))}
-if(W.ob)obstacle(x,W.ob);cockpit(x);
-x.fillStyle=rg(x,480,270,620,[[.55,'rgba(0,0,0,0)'],[1,'rgba(0,0,0,.45)']]);x.fillRect(-10,-10,980,560);x.restore()}
-function upd(dt){const o=W.ob;if(o){if(o.pass)o.pass=Math.min(1,o.pass+dt/1.3);else o.t=Math.min(.9,o.t+dt/5)}const k=Math.min(1,dt*3);W.ro+=(W.rt-W.ro)*k;W.sx+=(W.st-W.sx)*k}
-function loop(ts){const cv=$('#cv');if(!cv)return;if(!$('#game').classList.contains('on')||ts-(loop.d||0)<32){raf=requestAnimationFrame(loop);return}loop.d=ts;const dt=Math.min(.05,(ts-(lt||ts))/1000);lt=ts;GT+=dt;upd(dt);draw(cv.getContext('2d',{alpha:false}));raf=requestAnimationFrame(loop)}
-function gameMenu(){$('#game').innerHTML=`<div class="card end">${MAS('wave',96)}<h1>${ic('plane',30)} JAVA SKY ESCAPE</h1><p>You're in the cockpit. Answer Java questions to steer around obstacles. Two mistakes and you're out!</p><button class=bg id=gs>START FLIGHT</button></div>`;$('#gs').onclick=gameStart}
-function gameStart(){cancelAnimationFrame(raf);G={qs:sh(QB).slice(0,10),i:0,s:0,m:0,miss:[]};W={ob:null,ro:0,rt:0,sx:0,st:0,warn:0};lt=0;$('#game').innerHTML=`<h2>JAVA SKY ESCAPE</h2><div id=stats></div><div id=gw><div id=msg></div><canvas id=cv width=640 height=360></canvas></div><div class="card q" id=qa></div>`;nextQ();raf=requestAnimationFrame(loop)}
-function stats(){$('#stats').innerHTML=`<span>Question: ${Math.min(G.i+1,10)} / 10</span><span>Score: ${G.s}</span><span>Mistakes: ${G.m} / 2</span>`}
-function nextQ(){if(G.i>=10)return endG(1);stats();const q=G.qs[G.i],o=OB[Math.floor(Math.random()*5)];W.ob={k:o[0],t:0,pass:0,dir:1};W.rt=0;W.st=0;$('#cv').className='';$('#msg').textContent=`AVOID THE ${o[1]}!`;
-const opts=sh(q.slice(1).map((t,k)=>({t,r:!k})));$('#qa').innerHTML=`<b>${q[0]}</b>`+opts.map((p,k)=>`<button data-k=${k}>${'ABCD'[k]}. ${p.t}</button>`).join('');
-$('#qa').querySelectorAll('button').forEach(b=>b.onclick=()=>{const p=opts[b.dataset.k];$('#qa').querySelectorAll('button').forEach((x,k)=>{x.disabled=true;if(opts[k].r)x.classList.add('ok')});const L=Math.random()<.5;W.ob.pass=.001;
-if(p.r){G.s++;W.warn=0;$('#msg').innerHTML='CORRECT!<br>STEERING '+(L?'LEFT!':'RIGHT!');$('#cv').className=L?'tl':'tr';W.rt=L?-.35:.35;W.st=L?90:-90;W.ob.dir=L?1:-1}
-else{b.classList.add('no');G.m++;W.warn=1;$('#msg').innerHTML=`INCORRECT! ${ic('alert',20)} WARNING!<br>MISTAKES: ${G.m} / 2`}
-stats();const xi=QB.indexOf(q);if(!p.r)G.miss.push({q:q[0],a:q[1],x:EX[xi]});$('#qa').insertAdjacentHTML('beforeend',`<div class="xp ${p.r?'ok':'no'}"><b>${p.r?'Correct!':'Not quite.'}</b> ${EX[xi]}</div><button class=bg id=nxq>${G.m>=2?'See Results →':G.i>=9?'Finish →':'Next →'}</button>`);$('#nxq').onclick=()=>{if(G.m>=2)endG(0);else{G.i++;nextQ()}}})}
-function endG(w){$('#game').innerHTML=w?`<div class="card end">${MAS('cheer',104)}<h1>JAVA SKY ESCAPE COMPLETE!</h1><p>You made it safely through the sky!</p><h2>10 / 10 QUESTIONS SURVIVED</h2><p class=endrow>${ic('cloud',32)}${ic('plane',32)}${ic('cloud',32)}<span>{ } ; 7</span>${ic('cloud',32)}</p>${miss()}<div class=row style="justify-content:center"><button class=bg id=a>PLAY AGAIN</button><button class=b2 id=b>RETURN TO REVIEW</button></div></div>`:`<div class="card end">${MAS('oops',96)}<h2>JAVA SKY ESCAPE</h2><h1>YOU LOST!</h1><p>You made too many mistakes.</p><h2>FINAL SCORE: ${G.s} / 10</h2>${miss()}<div class=row style="justify-content:center"><button class=bg id=a>TRY AGAIN</button><button class=b2 id=b>RETURN TO REVIEW</button></div></div>`;$('#a').onclick=gameStart;$('#b').onclick=()=>show('toc')}
-$('#topic').addEventListener('click',e=>{const b=e.target.closest('[data-h],[data-s]');if(!b)return;const [k,w]=(b.dataset.h||b.dataset.s).split(':'),H=LS.get('hide',{});H[k]={...H[k],[w]:!!b.dataset.h};LS.set('hide',H);const y=scrollY;topic(+$('#topic').dataset.i);scrollTo(0,y)});
+
 $('#toc').addEventListener('click',e=>{if(e.target.id=='bk1')exportAll();if(e.target.id=='bk3')exportAll(true);if(e.target.id=='bk4')exportSite();if(e.target.id=='bk2')importAll()});
 initLab();if(window.__SEED)document.body.classList.add('view');
 initBit();
@@ -777,7 +790,264 @@ un.innerHTML=`<small>TABLE OF CONTENTS</small><b class=pc>${dn.length} / 7 Topic
 function unitLayout(){const r=$('#topic');if(!r||r.querySelector('.ul'))return;
 const ul=document.createElement('div');ul.className='ul';const uc=document.createElement('div');uc.className='uc';[...r.children].forEach(c=>uc.appendChild(c));
 const un=document.createElement('aside');un.className='un';un.setAttribute('aria-label','Topics');ul.append(un,uc);r.appendChild(ul);unitSide()}
-{const _t=topic;topic=function(i){_t(i);unitLayout()}}
+{const _t=topic;topic=function(i){_t(i);unitLayout();initDemo(i)}}
+/* ---- Interactive unit demonstrations (one per concept area) ---- */
+const fmtD=x=>Number.isFinite(x)?(Number.isInteger(x)&&Math.abs(x)<1e7?x.toFixed(1):String(x)):(Number.isNaN(x)?'NaN':(x>0?'Infinity':'-Infinity'));
+const bump=el=>{if(!el)return;el.classList.remove('bump');void el.offsetWidth;el.classList.add('bump')};
+const okI=(m,t='ok')=>`<span class="dmi ${t}">${ic(t=='ok'?'check':'alert',15)}</span> ${m}`;
+const JKW=['int','double','boolean','char','long','float','short','byte','class','public','private','static','void','if','else','for','while','do','switch','case','break','continue','return','try','catch','finally','new','true','false','null','final','this','import','package','throw','throws','default'];
+const VT={int:'int stores whole numbers like 16, -3 or 2000000.',double:'double stores decimal numbers like 4.5. A whole number such as 3 prints as 3.0.',boolean:'boolean stores only true or false.',String:'String stores text. The text goes inside double quotes. It is an object, not a primitive.',char:'char stores exactly one character, written inside single quotes.'};
+const VP=[['int','age','16'],['double','price','4.5'],['boolean','done','true'],['String','name','Alex'],['char','grade','A']];
+function demoHTML(i){
+if(i==1)return`<h2>INTERACTIVE EXAMPLE</h2><div class=dm id=dm><div class=dmr><label>Numbers are<select id=o_t><option value=int>int (whole numbers)</option><option value=double>double (decimals)</option></select></label><label>a<input id=o_a value=17 inputmode=decimal autocomplete=off></label><label>Operator<select id=o_o><option>+</option><option>-</option><option>*</option><option>/</option><option>%</option></select></label><label>b<input id=o_b value=5 inputmode=decimal autocomplete=off></label></div><pre class=cd id=o_c></pre><div class=dmo><div class=res id=o_r></div><p class=dmf id=o_e></p></div><div class=dots id=o_d aria-hidden=true></div></div>`;
+if(i==2)return`<h2>INTERACTIVE EXAMPLE</h2><div class=dm id=dm><div class=vpre id=v_p><small>Try an example</small>${VP.map((p,k)=>`<button type=button class=b2 data-p=${k}>${p[0]} ${p[1]}</button>`).join('')}</div><div class=dmr><label>Data type<select id=v_t>${Object.keys(VT).map(t=>`<option>${t}</option>`).join('')}</select></label><label>Variable name<input id=v_n value=age autocomplete=off spellcheck=false></label><label>Value<input id=v_v value=16 autocomplete=off spellcheck=false></label></div><p class=vnote id=v_note></p><pre class=cd id=v_c></pre><div class=vgrid><div class=vm id=v_m aria-hidden=true></div><table class=vt><thead><tr><th>Name</th><th>Data type</th><th>Current value</th><th>Output</th></tr></thead><tbody><tr id=v_r></tr></tbody></table></div><p class=dmf id=v_f aria-live=polite></p><div class=dmr><label>Change the value<input id=v_nv placeholder="Type a new value" autocomplete=off spellcheck=false></label><button type=button class=bg id=v_as>Assign new value</button><button type=button class=b2 id=v_rs>Reset</button></div></div>`;
+if(i==3)return`<h2>INTERACTIVE EXAMPLE</h2><div class=dm id=dm><div class=dmr><label>score: <output id=c_sv>72</output><input type=range id=c_s min=0 max=100 value=72></label><label>or type it<input id=c_n type=number min=0 max=100 value=72></label></div><div class=cbr id=c_b></div><p class=dmf id=c_o></p><div class=dmr><label>age<input id=c_a type=number value=15 min=0 max=99></label><label>Operator<select id=c_op><option value="&&">&amp;&amp; (AND)</option><option value="||">|| (OR)</option></select></label><label class=chk><input type=checkbox id=c_t checked> hasTicket</label></div><div class=cbr id=c_x></div></div>`;
+if(i==4)return`<h2>INTERACTIVE EXAMPLE</h2><div class=dm id=dm><div class=dmr><label>Start<input id=l_a type=number value=1></label><label>Condition<select id=l_c><option value="<=">&lt;=</option><option value="<">&lt;</option></select></label><label>End<input id=l_b type=number value=5></label><label>Update<select id=l_u><option>i++</option><option>i += 2</option><option>i--</option></select></label></div><pre class=cd id=l_code></pre><div class=dmr><button type=button class=bg id=l_play>${ic('play',14)} Play</button><button type=button class=b2 id=l_step>Step</button><button type=button class=b2 id=l_rs>Reset</button><span class=dmcnt id=l_i></span></div><div class=lchips id=l_ch aria-live=polite></div><p class=dmf id=l_f></p></div>`;
+if(i==5)return`<h2>INTERACTIVE EXAMPLE</h2><div class=dm id=dm><div class=dmr><label>a<input id=e_a type=number value=10></label><label>b<input id=e_b type=number value=0></label><label class=chk><input type=checkbox id=e_s> Remove the first semicolon</label><button type=button class=bg id=e_run>${ic('play',14)} Run</button></div><pre class=cd id=e_code></pre><div class=eflow id=e_f><span data-s=try>try</span><i>→</i><span data-s=catch>catch</span><i>→</i><span data-s=out>output</span></div><div class=dmo id=e_o></div></div>`;
+return''}
+function initDemo(i){const D=$('#dm');if(!D)return;
+if(i==1)demoOps();if(i==2)demoVars();if(i==3)demoIf();if(i==4)demoLoop();if(i==5)demoErr()}
+function demoOps(){const g=s=>$('#'+s);
+const run=()=>{const t=g('o_t').value,op=g('o_o').value,A=g('o_a').value.trim(),B=g('o_b').value.trim(),re=t=='int'?/^-?\d+$/:/^-?\d+(\.\d+)?$/,aok=re.test(A),bok=re.test(B);
+g('o_a').classList.toggle('bad',!aok);g('o_b').classList.toggle('bad',!bok);g('o_a').classList.toggle('good',aok);g('o_b').classList.toggle('good',bok);
+const D=g('o_d');D.innerHTML='';
+if(!aok||!bok){const w=!aok?A:B,dec=/^-?\d*\.\d*$/.test(w);g('o_c').innerHTML=hl('// fix the value to continue');g('o_r').textContent='?';g('o_e').innerHTML=okI(t=='int'&&dec?'An int holds whole numbers only, so '+eh(w)+' is not allowed. Switch to double to use decimals.':eh(w||'(empty)')+' is not a number. Type digits only, like 17.','bad');return}
+const a=+A,b=+B,dbl=t=='double',L=v=>dbl?fmtD(v):String(v);let r,msg='',err=false;
+if(op=='+'){r=a+b;msg=`+ adds the numbers: ${L(a)} + ${L(b)} = ${L(r)}.`}
+if(op=='-'){r=a-b;msg=`- subtracts the second number from the first.`}
+if(op=='*'){r=a*b;msg=`* multiplies the numbers.`}
+if(op=='/'){if(!dbl&&b===0)err=true;else{r=dbl?a/b:Math.trunc(a/b);msg=dbl?`With double values the decimal part is kept: ${L(a)} / ${L(b)} = ${L(r)}.`:(a%b!==0?`Both are int, so Java divides as whole numbers and throws away the decimal part. ${a} / ${b} is ${r}, not ${+(a/b).toFixed(3)}.`:`Both are int, so the answer is a whole number: ${r}.`)}}
+if(op=='%'){if(!dbl&&b===0)err=true;else{r=a%b;msg=dbl?`% gives the remainder after dividing: ${L(r)}.`:`% gives the remainder: ${a} divided by ${b} is ${Math.trunc(a/b)} with ${r} left over.`}}
+const lit=v=>dbl?fmtD(v):String(v);
+g('o_c').innerHTML=hl(`${t} result = ${lit(a)} ${op} ${lit(b)};\nSystem.out.println(result);`);
+if(err){g('o_r').textContent='Exception';g('o_e').innerHTML=okI('You cannot divide an int by zero. Java throws an ArithmeticException: / by zero.','bad');bump(g('o_r'));return}
+const oR=dbl&&op=='%'&&b===0?NaN:r;g('o_r').textContent=L(oR);bump(g('o_r'));
+g('o_e').innerHTML=okI(msg+(dbl&&b===0&&op=='/'?' Dividing a double by zero gives Infinity instead of an error.':''));
+if(!dbl&&(op=='/'||op=='%')&&b>0&&b<=12&&a>=0&&a<=48){const q=Math.trunc(a/b),rem=a%b;let h='';for(let k=0;k<a;k++){const gr=Math.floor(k/b),left=gr>=q;h+=`<i class="${left?'rem':'full'}" style="animation-delay:${Math.min(k*14,500)}ms"></i>`;if((k+1)%b==0&&k+1<a)h+='<u></u>'}D.innerHTML=h+`<small>${q} full group${q==1?'':'s'} of ${b}${rem?`, ${rem} left over`:''}</small>`}};
+['o_t','o_a','o_o','o_b'].forEach(id=>g(id).addEventListener('input',run));run()}
+function demoVars(){const g=s=>$('#'+s);let hist=[];
+const chk=(t,v)=>{if(t=='int'){if(/^-?\d+$/.test(v)){if(/^-?0\d/.test(v))return'Leading zeros make Java read the number as octal. Remove the zero.';const n=+v;if(n>2147483647||n<-2147483648)return'That is too big for an int (maximum 2147483647). A long can hold bigger whole numbers.';return''}if(/^-?\d*\.\d+$/.test(v))return'int cannot store a decimal like '+v+'. Change the type to double.';if(v==='true'||v==='false')return'int cannot store true or false. That is a boolean.';return(v===''?'Type a value.':v+' is not a whole number. Text needs a String.')}
+if(t=='double')return/^-?\d+(\.\d+)?$/.test(v)?'':(v===''?'Type a value.':v+' is not a number. Text needs a String.');
+if(t=='boolean')return v==='true'||v==='false'?'':'A boolean can only be true or false (lowercase, no quotes).';
+if(t=='char')return v.length==1?'':(v.length==0?'Type one character.':'A char holds exactly one character. Use a String for more.');
+return''};
+const lit=(t,v)=>t=='String'?'"'+v.replace(/\\/g,'\\\\').replace(/"/g,'\\"')+'"':t=='char'?"'"+(v=="'"?"\\'":v=='\\'?'\\\\':v)+"'":v;
+const out=(t,v)=>t=='double'?fmtD(+v):v;
+const st=()=>({t:g('v_t').value,n:g('v_n').value.trim(),v:g('v_v').value});
+const nameErr=n=>!n?'Give the variable a name.':!/^[A-Za-z_$][A-Za-z0-9_$]*$/.test(n)?(/^\d/.test(n)?'A name cannot start with a number.':'Names can use letters, digits, _ and $ only. No spaces or symbols.'):JKW.includes(n)?n+' is a reserved word in Java. Pick another name.':'';
+const render=(flash)=>{const S=st(),ne=nameErr(S.n),ve=chk(S.t,S.v);g('v_n').classList.toggle('bad',!!ne);g('v_n').classList.toggle('good',!ne);g('v_v').classList.toggle('bad',!!ve);g('v_v').classList.toggle('good',!ve);
+g('v_note').textContent=VT[S.t]+(S.t=='int'&&!g('v_note')._seen?' Try typing 3.5 in the value box.':'');
+const nm=S.n||'name',asg=hist.map(h=>`${nm} = ${lit(S.t,h)};`).join('\n');
+g('v_c').innerHTML=hl(`${S.t} ${nm} = ${ve?S.v:lit(S.t,S.v)};${asg?'\n'+asg:''}\nSystem.out.println(${nm});`)+(ve||ne?`<span class=cerr>${ic('alert',13)} ${eh(ne||ve)}</span>`:'');
+const cur=hist.length?hist[hist.length-1]:S.v;
+if(ne||ve){g('v_m').innerHTML=`<div class=vtag>${eh(nm)}</div><div class="vcell bad"><span class=vty>${S.t}</span><b class=vval>?</b></div>`;g('v_r').innerHTML=`<td>${eh(S.n)}</td><td>${S.t}</td><td class=bad>not stored</td><td class=bad>compile error</td>`;g('v_f').innerHTML=okI(eh(ne||ve)+' Java would not compile this line.','bad');return}
+g('v_m').innerHTML=`<div class=vtag>${eh(nm)}</div><div class=vcell><span class=vty>${S.t}</span><b class="vval${flash?' swap':''}">${eh(S.t=='String'||S.t=='char'?lit(S.t,cur):cur)}</b></div>`;
+g('v_r').innerHTML=`<td>${eh(nm)}</td><td>${S.t}</td><td>${eh(S.t=='String'||S.t=='char'?lit(S.t,cur):cur)}</td><td>${eh(out(S.t,cur))}</td>`;
+if(!flash)g('v_f').innerHTML=okI(`${S.t=='int'?'An':'A'} ${S.t} variable named <b>${eh(nm)}</b> holds ${eh(S.t=='String'||S.t=='char'?lit(S.t,cur):cur)}. ${S.t=='double'&&/^-?\d+$/.test(cur)?'A whole number stored in a double prints with .0.':S.t=='String'?'The quotes are part of the code, not the text.':S.t=='char'?'Single quotes mean one character.':'Change the value or the type to see what happens.'}`)};
+['v_t','v_n','v_v'].forEach(id=>g(id).addEventListener('input',e=>{hist=[];if(id=='v_t'){g('v_note')._seen=1;const S=st();if(!chk(S.t,S.v)&&S.v!=='')g('v_f').dataset.t='1'}render()}));
+$('#v_p').addEventListener('click',e=>{const b=e.target.closest('[data-p]');if(!b)return;const p=VP[+b.dataset.p];g('v_t').value=p[0];g('v_n').value=p[1];g('v_v').value=p[2];hist=[];g('v_nv').value='';render(false);bump(g('v_m'))});
+g('v_as').onclick=()=>{const S=st(),nv=g('v_nv').value,ne=nameErr(S.n),ve=chk(S.t,S.v);if(ne||ve){g('v_f').innerHTML=okI('Fix the declaration first. '+eh(ne||ve),'bad');return}
+const e=chk(S.t,nv);if(e){g('v_f').innerHTML=okI(eh(e)+` The value of ${eh(S.n)} stays ${eh(hist.length?hist[hist.length-1]:S.v)}.`,'bad');g('v_nv').classList.add('bad');return}
+g('v_nv').classList.remove('bad');const old=hist.length?hist[hist.length-1]:S.v;hist.push(nv);if(hist.length>4)hist.shift();render(true);g('v_f').innerHTML=okI(`Same variable, same type: only the value changed from <b>${eh(old)}</b> to <b>${eh(nv)}</b>. The old value is gone.`);if(!RM.matches)say(`${S.n} now holds ${nv}`,'happy',2400)};
+g('v_nv').addEventListener('keydown',e=>{if(e.key=='Enter')g('v_as').click()});
+g('v_rs').onclick=()=>{g('v_t').value='int';g('v_n').value='age';g('v_v').value='16';g('v_nv').value='';g('v_nv').classList.remove('bad');hist=[];g('v_note')._seen=0;render();bump(g('v_m'))};
+render()}
+function demoIf(){const g=s=>$('#'+s);
+const run=v=>{v=Math.max(0,Math.min(100,Math.round(+v)||0));g('c_sv').textContent=v;g('c_s').value=v;if(document.activeElement!==g('c_n'))g('c_n').value=v;
+const rows=[['if (score >= 90)','A',v>=90],['else if (score >= 70)','B',v>=70],['else','Keep practicing',true]];let hit=-1;
+g('c_b').innerHTML=rows.map((r,k)=>{const reach=hit<0;let cls='skip',ev='not checked';if(reach){const c=r[2];ev=k<2?`${v} ${k?'>= 70':'>= 90'} is ${c}`:'nothing else matched';if(c){cls='run';hit=k}else cls='no'}
+return`<div class="cb ${cls}"><code>${eh(r[0])} {</code><span class=ev>${ev}</span><code class=ou>System.out.println("${r[1]}");</code></div>`}).join('');
+g('c_o').innerHTML=okI(`score is ${v}, so the program prints <b>${rows[hit][1]}</b>. Only the first true branch runs.`);};
+const run2=()=>{const a=+g('c_a').value,t=g('c_t').checked,op=g('c_op').value,A=a>=12,r=op=='&&'?A&&t:A||t;
+const chip=(l,b)=>`<span class="tv ${b?'t':'f'}">${eh(l)} is ${b}</span>`;
+g('c_x').innerHTML=`<div class="cb ${r?'run':'no'}"><code>if (age >= 12 ${op} hasTicket) {</code><span class=ev>${chip('age >= 12',A)}${chip('hasTicket',t)}<span class=tv>${op=='&&'?'AND needs both true':'OR needs at least one true'}</span></span><code class=ou>System.out.println("${r?'Welcome in!':'Sorry, no entry.'}");</code></div>`};
+g('c_s').addEventListener('input',e=>run(e.target.value));g('c_n').addEventListener('input',e=>{if(e.target.value!=='')run(e.target.value)});
+['c_a','c_op','c_t'].forEach(id=>g(id).addEventListener('input',run2));run(72);run2()}
+function demoLoop(){const g=s=>$('#'+s);let seq=[],shown=0,timer=0;
+const calc=()=>{const a=+g('l_a').value,b=+g('l_b').value,c=g('l_c').value,u=g('l_u').value,test=i=>c=='<='?i<=b:i<b,d=u=='i++'?1:u=='i--'?-1:2;seq=[];let i=a,n=0;while(test(i)&&n<200){seq.push(i);i+=d;n++}
+return{a,b,c,u,inf:n>=200,end:i,test}};
+const code=()=>{const L=calc();g('l_code').innerHTML=hl(`for (int i = ${L.a}; i ${L.c} ${L.b}; ${L.u}) {\n    System.out.println(i);\n}`);return L};
+const paint=(done)=>{const L=code();g('l_i').textContent=shown?`i = ${seq[Math.min(shown,seq.length)-1]}  ·  run ${shown}`:'';
+g('l_ch').innerHTML=seq.slice(0,Math.min(shown,12)).map((v,k)=>`<span class="lc${k==shown-1?' cur':''}">${v}</span>`).join('')+(shown>12?'<span class=lc>…</span>':'');
+if(done){g('l_f').innerHTML=!seq.length?okI(`The condition i ${L.c} ${L.b} is false right at the start (i is ${L.a}), so the loop body never runs.`,'bad'):L.inf?okI(`This loop never ends: ${L.u} never makes i ${L.c} ${L.b} false. In real Java it would keep printing until you stop it.`,'bad'):okI(`The loop ran ${seq.length} time${seq.length==1?'':'s'}. When i became ${L.end}, the condition i ${L.c} ${L.b} was false, so the loop stopped.`)}else g('l_f').textContent=''};
+const reset=()=>{clearTimeout(timer);shown=0;paint(false)};
+const adv=()=>{const L=calc();if(shown<Math.min(seq.length,L.inf?12:seq.length)){shown++;paint(false);return true}paint(true);return false};
+g('l_play').onclick=()=>{reset();const tick=()=>{if(!g('l_ch')||!document.body.contains(g('l_ch')))return;if(adv())timer=setTimeout(tick,RM.matches?0:420)};tick()};
+g('l_step').onclick=()=>{clearTimeout(timer);adv()};g('l_rs').onclick=reset;
+['l_a','l_b','l_c','l_u'].forEach(id=>g(id).addEventListener('input',reset));reset()}
+function demoErr(){const g=s=>$('#'+s);let timer=[];
+const code=()=>{const a=g('e_a').value,b=g('e_b').value,semi=g('e_s').checked;g('e_code').innerHTML=hl(`int a = ${a};\nint b = ${b};\ntry {\n    System.out.println(a / b)${semi?'':';'}\n} catch (Exception e) {\n    System.out.println("An error occurred.");\n}`)};
+const clear=()=>{timer.forEach(clearTimeout);timer=[];g('e_f').querySelectorAll('span').forEach(s=>s.className='');g('e_f').querySelectorAll('i').forEach(s=>s.className='');g('e_o').innerHTML=''};
+const step=(fn,ms)=>timer.push(setTimeout(fn,RM.matches?0:ms));
+const mark=(s,c)=>{const e=g('e_f').querySelector(`[data-s=${s}]`);if(e)e.className=c};
+g('e_run').onclick=()=>{clear();code();const A=g('e_a').value.trim(),B=g('e_b').value.trim();
+if(!/^-?\d+$/.test(A)||!/^-?\d+$/.test(B)){g('e_o').innerHTML=okI('a and b must be whole numbers because they are int variables.','bad');return}
+if(g('e_s').checked){mark('try','err');g('e_o').innerHTML=okI(`<b>Syntax error</b>: error: ';' expected. Java checks the grammar before running, so nothing runs at all. Not even the catch block can save you from this.`,'bad');if(!RM.matches)say('A missing semicolon is a syntax error','oops',2800);return}
+const a=+A,b=+B;mark('try','on');
+if(b===0){step(()=>{mark('try','err');g('e_f').querySelectorAll('i')[0].className='on'},550);step(()=>{mark('catch','on');g('e_f').querySelectorAll('i')[1].className='on'},1100);step(()=>{mark('out','on');g('e_o').innerHTML=okI('<b>An error occurred.</b> Dividing an int by zero threw an ArithmeticException. The catch block handled it, so the program did not crash.');if(!RM.matches)say('The catch block saved the program','happy',2600)},1650)}
+else{step(()=>{mark('try','ok');g('e_f').querySelectorAll('i')[1].className='on';mark('catch','skip')},550);step(()=>{mark('out','on');g('e_o').innerHTML=okI(`<b>${Math.trunc(a/b)}</b>. Nothing went wrong in the try block, so the catch block was skipped.`)},1100)}};
+['e_a','e_b','e_s'].forEach(id=>g(id).addEventListener('input',()=>{clear();code()}));code()}
+
+/* ===== Java Sky Escape: a steerable adventure through every unit ===== */
+Object.assign(IC,{pause:'<path d="M8 5v14M16 5v14"/>',shield:'<path d="M12 3l8 3v6c0 4.5-3.3 7.7-8 9-4.7-1.3-8-4.5-8-9V6z"/>',flag:'<path d="M5 21V4M5 4h11l-2 4 2 4H5"/>',refresh:'<path d="M20 11a8 8 0 1 0-2.3 5.7M20 4v7h-7"/>','arrow-up':'<path d="M12 19V5M6 11l6-6 6 6"/>','arrow-down':'<path d="M12 5v14M6 13l6 6 6-6"/>','arrow-left':'<path d="M19 12H5M11 6l-6 6 6 6"/>','arrow-right':'<path d="M5 12h14M13 6l6 6-6 6"/>'});
+const GW=800,GH=400;
+/* Curriculum map: which question-bank entries belong to which unit */
+const UMAP=[[0,1,16,18,19,44,45],[2,3,13,14,15,20,21,25,26,41,42],[4,5,22,23,24,43],[6,7,27,28,29,30,31,32],[8,9,17,33,34,35,36],[10,11,12,37,38,39,40]];
+const QC={0:'Showing Output',18:'Showing Output',1:'Getting Input',16:'Getting Input',19:'Getting Input',44:'Getting Input',45:'Getting Input',2:'Modulus',20:'Modulus',3:'Arithmetic Operators',21:'Arithmetic Operators',13:'String Concatenation',41:'String Concatenation',14:'Order of Operations',42:'Order of Operations',15:'Special Operators',26:'Special Operators',25:'Casting',4:'Primitive Data Types',22:'Primitive Data Types',23:'Primitive Data Types',5:'Declaration',24:'Declaration',43:'What is a variable?',6:'AND, OR, NOT',27:'AND, OR, NOT',28:'AND, OR, NOT',32:'AND, OR, NOT',7:'Relational Operators',29:'Relational Operators',30:'If / Else',31:'Switch Statements',8:'For Loops',34:'For Loops',35:'For Loops',17:'While Loops',33:'While Loops',36:'While Loops',9:'Break',10:'Syntax Errors',40:'Syntax Errors',11:'Logical Errors',12:'Try / Catch',38:'Try / Catch',37:'Exception Handling',39:'Exception Handling'};
+const uOf=i=>UMAP.findIndex(a=>a.includes(i));
+const mq=i=>({k:'mc',u:uOf(i),c:QC[i],q:QB[i][0],o:QB[i].slice(1),a:QB[i][1],x:EX[i]});
+const aq=(u,c,k,q,code,a,x,o,h)=>({k,u,c,q,code,a:a||(o&&o[0]),x,o,h});
+const STG=[
+{u:0,g:[mq(0),aq(0,'Getting Input','fill','Fill in the blank to create a Scanner that reads from the keyboard.','Scanner input = new ______(System.in);',['Scanner'],'Scanner is the class that reads what the user types. new creates it and System.in is the keyboard.',null,'The class name starts with a capital S.'),mq(1)]},
+{u:1,g:[mq(3),aq(1,'Special Operators','out','What does this print?','int n = 5;\nn += 10;\nn++;\nSystem.out.println(n);',['16'],'n starts at 5, n += 10 makes it 15, and n++ adds 1 more, so it prints 16.',null,'Follow the value of n line by line.'),mq(13),aq(1,'Casting','out','What does this print?','System.out.println((int) 7.9 + 17 % 5);',['9'],'(int) 7.9 cuts the decimals to 7. 17 % 5 is 2. Then 7 + 2 is 9.',null,'Work out the cast and the % before adding.')]},
+{u:2,g:[mq(4),aq(2,'Declaration','mc','Why will this line not compile?','int age = "16";',null,'"16" is a String. An int variable can only store whole numbers, so the types do not match.',['A String value cannot be stored in an int variable','age is not a valid variable name','int variables need a decimal point','Variables must be declared with double'],'Compare the type on the left with the value on the right.'),aq(2,'Primitive Data Types','fill','Fill in the blank with the data type that stores whole numbers.','______ count = 10;',['int'],'int stores whole numbers like 10.',null,'It is one of the primitive types and has three letters.'),mq(43)]},
+{u:3,g:[mq(6),aq(3,'If / Else','out','What does this print?','int x = 8;\nif (x > 10) {\n    System.out.println("big");\n} else if (x > 5) {\n    System.out.println("medium");\n} else {\n    System.out.println("small");\n}',['medium'],'8 is not greater than 10, but it is greater than 5, so the else if block runs.',null,'Check each condition from the top. The first true one runs.'),mq(31),aq(3,'Relational Operators','out','What does this print?','System.out.println(5 > 3 && 2 > 4);',['false'],'5 > 3 is true but 2 > 4 is false. && needs both sides true, so the result is false.',null,'&& is true only when both sides are true.'),aq(3,'Nested If Statements','out','What does this print?','int x = 6;\nif (x > 0) {\n    if (x % 2 == 0) {\n        System.out.println("even");\n    }\n}',['even'],'6 is greater than 0, so the outer if runs. Then 6 % 2 is 0, so the inner if runs too.',null,'The inner if only runs when the outer one is true.')]},
+{u:4,g:[aq(4,'For Loops','out','What does this print? (print() keeps everything on one line.)','for (int i = 1; i <= 3; i++) {\n    System.out.print(i);\n}',['123'],'i is 1, then 2, then 3. print() stays on one line, so the output is 123.',null,'List the value of i each time the loop runs.'),aq(4,'While Loops','mc','Why does this loop never stop?','int i = 1;\nwhile (i <= 3) {\n    System.out.println(i);\n}',null,'i never changes inside the loop, so the condition i <= 3 is always true.',['i never changes, so the condition stays true','while loops cannot use println','The condition should be i < 3','println should be print'],'What inside the loop changes i?'),mq(9)]},
+{u:5,g:[mq(10),mq(11),aq(5,'Try / Catch','out','What does this print?','int a = 10;\nint b = 0;\ntry {\n    System.out.println(a / b);\n} catch (Exception e) {\n    System.out.println("Error");\n}',['Error'],'10 / 0 throws an ArithmeticException, so the catch block runs and prints Error.',null,'What happens when an int is divided by zero?'),mq(37)]},
+{u:6,g:[aq(6,'Mixed: Variables and Operators','out','What does this print?','int a = 7;\ndouble b = 2;\nSystem.out.println(a / 2 + b);',['5.0'],'a / 2 is int division, so it is 3. Then 3 + 2.0 is the double 5.0.',null,'Do the division first. Are both numbers ints?'),aq(6,'Mixed: Loops and Conditionals','out','What does this print?','int sum = 0;\nfor (int i = 1; i <= 4; i++) {\n    if (i % 2 == 0) {\n        sum += i;\n    }\n}\nSystem.out.println(sum);',['6'],'Only the even values of i (2 and 4) are added: 2 + 4 = 6.',null,'Which values of i pass the if test?'),aq(6,'Mixed: Relational Operators','mc','What is wrong with this code?','int x = 5;\nif (x = 5) {\n    System.out.println("Five");\n}',null,'= assigns a value. To compare two values you need ==.',['= assigns a value; use == to compare','if statements need an else block','x must be a double','println must be print'],'Is the if comparing or assigning?'),aq(6,'Mixed: String Concatenation','out','What does this print?','String s = "Java";\nint n = 3;\nSystem.out.println(s + n + 1);',['Java31'],'Java joins left to right: "Java" + 3 gives "Java3", then + 1 gives "Java31".',null,'Once a String is involved, + joins text.'),aq(6,'Mixed: Showing Output','fill','Fill in the blank so the text prints and then moves to a new line.','System.out.______("Hello");',['println'],'println() prints and then moves to a new line; print() stays on the same line.',null,'Which method moves to a new line?')]}
+];
+STG.forEach((s,si)=>s.g.forEach((q,gi)=>q.id=si+'.'+gi));
+const stageName=i=>i<6?T[STG[i].u].t:'Exercise: Final Approach';
+const stageGates=(P)=>{const s=STG[P.stage];if(P.stage<STG.length-1)return s.g;
+const rv=P.miss.map(id=>{const [a,b]=id.split('.');return STG[a]&&STG[a].g[b]}).filter(Boolean).slice(0,2).map(q=>({...q,rv:1,id:'r'+q.id}));return[...s.g,...rv]};
+const norm=v=>v.trim().replace(/\s+/g,' ').replace(/^"(.*)"$/,'$1');
+let PG=null,pgRaf=0,pgLast=0,pgCtx=null,pgRO=null;
+const pgKeys={},KM={ArrowUp:'U',ArrowDown:'D',ArrowLeft:'L',ArrowRight:'R',w:'U',W:'U',s:'D',S:'D',a:'L',A:'L',d:'R',D:'R'};
+const cl=(v,a,b)=>Math.max(a,Math.min(b,v));
+function pgStop(){cancelAnimationFrame(pgRaf);pgRaf=0;if(pgRO){pgRO.disconnect();pgRO=null}PG=null;for(const k in pgKeys)pgKeys[k]=0}
+function gameMenu(){pgStop();const sv=LS.get('pg',null);
+$('#game').innerHTML=`<div class=gmenu><div class=gml>${MAS('wave',100)}<h1>${ic('plane',30)} JAVA SKY ESCAPE</h1><p>You're in the cockpit. Steer the plane around obstacles and answer Java questions at each gate to complete the journey across every unit.</p><div class=row><button class=bg id=gs>${ic('play',14)} START FLIGHT</button>${sv?`<button class=b2 id=gc>${ic('flag',14)} Continue: stage ${sv.s+1}, gate ${sv.g+1}</button>`:''}</div><h3>Controls</h3><ul class=gk><li><span><kbd>↑</kbd><kbd>↓</kbd><kbd>←</kbd><kbd>→</kbd> or <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></span> steer the plane</li><li><span><kbd>Esc</kbd> or <kbd>P</kbd></span> pause</li><li><span>Touch</span> use the on-screen pad</li></ul></div><ol class=gmap>${STG.map((s,i)=>`<li><span class=n>0${i+1}</span><span class=ot><b>${stageName(i)}</b><small>${i<6?`${s.g.length} gates · ${new Set(s.g.map(q=>q.c)).size} concepts`:'Every unit combined'}</small></span></li>`).join('')}</ol></div>`;
+$('#gs').onclick=()=>{LS.set('pg',null);gameStart()};if(sv)$('#gc').onclick=()=>gameStart(sv)}
+function gameStart(sv){pgStop();
+const P=PG={stage:sv?sv.s:0,gi:sv?sv.g:0,x:150,y:GH/2,vx:0,vy:0,hull:3,score:sv?sv.sc:0,run:0,seg:640,haz:[],tok:[],gate:null,inv:0,sp:1,tp:1.5,sc:0,st:'fly',stats:sv?sv.stats:Array.from({length:7},()=>({a:0,f:0})),miss:sv?sv.miss:[],fx:[],t:0,tilt:0,land:0,q:null,tries:0};
+P.gates=stageGates(P);
+$('#game').innerHTML=`<div class=gm id=gm><div class=ghud><ol class=gtrack id=gtr aria-label="Journey progress"></ol><div class=gstat><span id=ghl class=ghl aria-label="Hull"></span><span id=gsc class=gsc></span><button type=button class=b2 id=gpb>${ic('pause',14)} Pause</button></div></div><div class=gbody><div class=gcv id=gcv><canvas id=pgc width=800 height=400 role=img aria-label="Your plane flying through the course"></canvas><div class=gstg id=gstg></div><div class=gps id=gps hidden></div></div><section class=gq id=gq hidden></section></div><div class=gpad id=gpad>${[['U','arrow-up','Up'],['L','arrow-left','Left'],['D','arrow-down','Down'],['R','arrow-right','Right']].map(([d,i,n])=>`<button type=button data-d=${d} aria-label="Steer ${n}">${ic(i,22)}</button>`).join('')}</div></div>`;
+const cv=$('#pgc');pgCtx=cv.getContext('2d');
+const fit=()=>{const w=cv.clientWidth||GW,k=Math.max(1,w*(devicePixelRatio||1)/GW);cv.width=Math.round(GW*k);cv.height=Math.round(GH*k);pgCtx.setTransform(k,0,0,k,0,0);pgDraw()};
+pgRO=new ResizeObserver(fit);pgRO.observe(cv);fit();
+$('#gpb').onclick=()=>pgPause();
+$('#gpad').querySelectorAll('button').forEach(b=>{const d=b.dataset.d,on=e=>{e.preventDefault();if(PG&&PG.st=='fly')pgKeys[d]=1},off=()=>{pgKeys[d]=0};b.addEventListener('pointerdown',on);['pointerup','pointercancel','pointerleave'].forEach(ev=>b.addEventListener(ev,off))});
+$('#gq').addEventListener('click',pgPanelClick);$('#gq').addEventListener('submit',e=>{e.preventDefault();const i=$('#gin');if(i&&PG&&!PG.done)pgAnswer(i.value)});
+pgHud();pgBanner();pgLast=0;pgRaf=requestAnimationFrame(pgLoop)}
+function pgBanner(){const P=PG,s=STG[P.stage],el=$('#gstg');if(!el)return;
+el.innerHTML=`<small>STAGE ${P.stage+1} / ${STG.length}</small><b>${stageName(P.stage)}</b><span>${P.stage<6?T[s.u].notes.map(n=>n[0]).join(' · '):'Variables · Operators · Conditionals · Loops · Input and Output · Errors'}</span>`;
+el.classList.remove('show');void el.offsetWidth;el.classList.add('show');clearTimeout(el._t);el._t=setTimeout(()=>el.classList.remove('show'),3200)}
+function pgHud(){const P=PG;if(!P||!$('#gtr'))return;
+$('#gtr').innerHTML=STG.map((s,i)=>`<li class="${i<P.stage?'done':i==P.stage?'cur':''}" style="--p:${i==P.stage?P.gi/P.gates.length:i<P.stage?1:0}" title="${eh(stageName(i))}"><span>${i<P.stage?ic('check',12):i+1}</span></li>`).join('');
+$('#ghl').innerHTML=[0,1,2].map(i=>`<span class="${i<P.hull?'':'lost'}">${ic('shield',18)}</span>`).join('');
+$('#gsc').innerHTML=`${ic('flag',14)} ${P.score}`}
+function pgLoop(ts){pgRaf=0;if(!PG)return;if(!$('#game').classList.contains('on')){if(PG.st=='fly')PG.st='pause';return}
+const dt=Math.min(.05,(ts-(pgLast||ts))/1000);pgLast=ts;pgUpdate(dt);pgDraw();pgRaf=requestAnimationFrame(pgLoop)}
+function pgSave(){const P=PG;LS.set('pg',{s:P.stage,g:P.gi,sc:P.score,stats:P.stats,miss:P.miss})}
+function pgSpawn(){const P=PG,r=Math.random();if(r<.55)P.haz.push({t:'cloud',x:GW+50,y:50+Math.random()*(GH-150),r:24+Math.random()*10});else P.haz.push({t:'bird',x:GW+40,y:60+Math.random()*(GH-170),y0:0,r:15,ph:Math.random()*6});const h=P.haz[P.haz.length-1];h.y0=h.y}
+function pgUpdate(dt){const P=PG;if(!P)return;
+if(P.st=='land')return pgLand(dt);
+if(P.st!='fly')return;
+P.t+=dt;
+const L=pgKeys.L,R=pgKeys.R,U=pgKeys.U,D=pgKeys.D;
+P.vx+=((R?1:0)-(L?1:0))*1100*dt;P.vy+=((D?1:0)-(U?1:0))*1100*dt;
+if(!L&&!R)P.vx+=(150-P.x)*1.4*dt;
+const dm=Math.min(1,6*dt);P.vx-=P.vx*dm;P.vy-=P.vy*dm;P.vx=cl(P.vx,-260,260);P.vy=cl(P.vy,-260,260);
+P.x=cl(P.x+P.vx*dt,40,360);P.y=cl(P.y+P.vy*dt,36,GH-72);
+P.tilt+=(cl(P.vy/420,-.35,.35)-P.tilt)*Math.min(1,8*dt);
+if(P.inv>0)P.inv-=dt;
+const g=P.gate;let f=1;
+if(g&&g.state=='closed')f=cl((g.x-P.x-72)/160,0,1);
+const v=(150+P.stage*14)*f;P.sc+=v*dt;P.run+=v*dt;
+if(g){g.x-=v*dt;if(g.state=='open')g.open=Math.min(1,g.open+dt/.6);
+if(g.state=='closed'&&g.x-P.x<=72.5)return pgAsk();
+if(g.state=='open'&&g.x<P.x-30){P.gate=null;if(g.last)return pgStageDone()}}
+else if(P.run>=P.seg){P.gate={x:GW+80,state:'closed',open:0,last:P.gi==P.gates.length-1}}
+if(!P.gate&&P.run<P.seg-260){P.sp-=dt;if(P.sp<=0){pgSpawn();P.sp=Math.max(.7,1.7-P.stage*.12)*(.7+Math.random()*.6)}P.tp-=dt;if(P.tp<=0){P.tok.push({x:GW+30,y:50+Math.random()*(GH-150),r:10});P.tp=2+Math.random()*1.5}}
+for(const h of P.haz){h.x-=(v+(h.t=='bird'?70:0))*dt;if(h.t=='bird')h.y=h.y0+Math.sin(P.t*2.2+h.ph)*30}
+for(const k of P.tok)k.x-=v*dt;
+P.haz=P.haz.filter(h=>h.x>-70);P.tok=P.tok.filter(k=>k.x>-30);
+for(const h of P.haz){if(P.inv<=0&&Math.hypot(h.x-P.x,h.y-P.y)<h.r+13-3){P.hull--;P.inv=1.5;P.vx=-140;P.fx.push({x:P.x,y:P.y-22,t:0,s:'Hit!'});pgHud();if(P.hull<=0)return pgCrash();if(!RM.matches)setMood($('#gq .mas'),'oops',900)}}
+P.tok=P.tok.filter(k=>{if(Math.hypot(k.x-P.x,k.y-P.y)<k.r+14){P.score+=10;P.fx.push({x:k.x,y:k.y-14,t:0,s:'+10'});pgHud();return false}return true});
+P.fx.forEach(e=>e.t+=dt);P.fx=P.fx.filter(e=>e.t<.9)}
+/* ---- questions ---- */
+function pgAsk(){const P=PG;P.st='ask';for(const k in pgKeys)pgKeys[k]=0;const q=P.q=P.gates[P.gi];P.tries=0;P.done=false;
+P.opts=q.k=='mc'?sh(q.o):null;
+const body=q.k=='mc'?`<div class=gopts>${P.opts.map((o,i)=>`<button type=button class=gopt data-o="${i}"><span>${'ABCD'[i]}</span>${eh(o)}</button>`).join('')}</div>`:`<form class=gform><input id=gin type=text autocomplete=off autocapitalize=off spellcheck=false aria-label="Your answer" placeholder="Type your answer"><button class=bg type=submit>Check</button></form>`;
+$('#gq').innerHTML=`<header class=gqh>${MAS('idle',46)}<div><small>UNIT ${q.u+1} · ${eh(q.u<6?T[q.u].t:'Exercise')}${q.rv?' · REVIEW':''}</small><b>${eh(q.c)}</b></div><span class=gqn>${P.gi+1} / ${P.gates.length}</span></header><p class=gqq>${eh(q.q)}</p>${q.code?`<pre class=cd>${hl(q.code)}</pre>`:''}${body}<div class=gfb id=gfb role=status aria-live=polite></div><div class=row id=gqa></div>`;
+$('#gq').hidden=false;$('#gm').classList.add('asking');
+const f=$('#gin')||$('#gq .gopt');if(f)f.focus({preventScroll:true});
+$('#gq').scrollIntoView({block:'nearest',behavior:RM.matches?'auto':'smooth'})}
+function pgPanelClick(e){const P=PG;if(!P)return;const o=e.target.closest('.gopt');if(o&&!P.done&&!o.disabled)pgAnswer(P.opts[+o.dataset.o],o);
+if(e.target.closest('#gcont'))pgResolve();if(e.target.closest('#gnx'))pgNextStage();if(e.target.closest('#grs'))pgResume();if(e.target.closest('#gagain'))pgRestart();if(e.target.closest('#gback'))show('toc')}
+function pgAnswer(v,btn){const P=PG,q=P.q;if(P.done)return;P.tries++;
+const ok=q.k=='mc'?v===q.a:q.a.includes(norm(v)),fb=$('#gfb'),stt=P.stats[q.u],mas=$('#gq .mas'),ans=q.k=='mc'?q.a:q.a[0];
+const cont=()=>{$('#gqa').innerHTML=`<button type=button class=bg id=gcont>${ic('play',14)} Open the gate</button>`;$('#gcont').focus({preventScroll:true})};
+if(ok){P.done=true;if(!q.rv){stt.a++;if(P.tries==1)stt.f++}P.score+=P.tries==1?100:50;if(q.rv)P.miss=P.miss.filter(id=>id!==q.id.slice(1));
+fb.className='gfb ok';fb.innerHTML=`${ic('check',16)} <b>${P.tries==1?'Correct!':'Correct on the second try.'}</b> ${eh(q.x)}`;
+$('#gq').querySelectorAll('.gopt').forEach(b=>{b.disabled=true;if(b.textContent.slice(1)===q.a)b.classList.add('ok')});const gi=$('#gin');if(gi)gi.disabled=true;
+setMood(mas,'happy',1800);pgHud();cont();return}
+if(P.tries==1){fb.className='gfb no';fb.innerHTML=`${ic('alert',16)} <b>Not quite.</b> ${eh(q.h||'Think about '+q.c+' and try again.')}`;if(btn){btn.disabled=true;btn.classList.add('no')}else{const gi=$('#gin');gi.select();gi.focus()}setMood(mas,'oops',1400);return}
+P.done=true;if(!q.rv){stt.a++;const id=q.id;if(!P.miss.includes(id))P.miss.push(id)}
+P.hull=Math.max(1,P.hull-1);
+fb.className='gfb no';fb.innerHTML=`${ic('alert',16)} <b>The answer is ${eh(ans)}.</b> ${eh(q.x)} <em>This one will come back in the final approach so you can master it.</em>`;
+$('#gq').querySelectorAll('.gopt').forEach(b=>{b.disabled=true;if(b.textContent.slice(1)===q.a)b.classList.add('ok')});const gi=$('#gin');if(gi)gi.disabled=true;
+setMood(mas,'oops',1800);pgHud();cont()}
+function pgResolve(){const P=PG;if(!P||!P.done)return;$('#gq').hidden=true;$('#gm').classList.remove('asking');P.gate.state='open';P.gi++;P.run=0;P.st='fly';pgSave();pgHud();if(!RM.matches)say('Gate open. Keep flying!','happy',1800)}
+function pgStageDone(){const P=PG,s=STG[P.stage],stt=P.stats[s.u];
+if(P.stage==STG.length-1)return pgLandStart();
+P.st='check';const prev=P.stage;P.score+=100;P.hull=Math.min(3,P.hull+1);P.stage++;P.gi=0;P.gates=stageGates(P);pgSave();pgHud();
+const msg=stt.f==stt.a?'Flawless: every answer was right on the first try.':stt.f*2>=stt.a?'Solid work. Check the explanations for the ones you missed.':'Keep practicing. Reread this lesson, then try again. The tricky ones come back later.';
+$('#gq').innerHTML=`<header class=gqh>${MAS('cheer',46)}<div><small>CHECKPOINT</small><b>Unit ${prev+1} complete: ${eh(stageName(prev))}</b></div></header><p class=gqq>First-try answers: ${stt.f} of ${stt.a}. ${msg}</p><div class=gchips>${[...new Set(s.g.map(q=>q.c))].map(c=>`<span>${ic('check',12)} ${eh(c)}</span>`).join('')}</div><p class=gfb>Reward: +100 points and one hull point repaired. Progress saved.</p><div class=row><button type=button class=bg id=gnx>${ic('play',14)} Continue to ${eh(stageName(P.stage))}</button></div>`;
+$('#gq').hidden=false;$('#gm').classList.add('asking');$('#gnx').focus({preventScroll:true});$('#gq').scrollIntoView({block:'nearest'});if(!RM.matches)say('Checkpoint reached!','cheer',2400)}
+function pgNextStage(){const P=PG;$('#gq').hidden=true;$('#gm').classList.remove('asking');P.run=0;P.gate=null;P.haz=[];P.tok=[];P.st='fly';pgHud();pgBanner()}
+function pgCrash(){const P=PG;P.st='crash';for(const k in pgKeys)pgKeys[k]=0;
+$('#gq').innerHTML=`<header class=gqh>${MAS('oops',46)}<div><small>EMERGENCY LANDING</small><b>The plane took too much damage</b></div></header><p class=gqq>No problem. Nothing is lost: you restart at gate ${P.gi+1} of this stage with a repaired hull.</p><div class=row><button type=button class=bg id=grs>${ic('refresh',14)} Resume from checkpoint</button></div>`;
+$('#gq').hidden=false;$('#gm').classList.add('asking');$('#grs').focus({preventScroll:true});$('#gq').scrollIntoView({block:'nearest'})}
+function pgResume(){const P=PG;$('#gq').hidden=true;$('#gm').classList.remove('asking');P.hull=3;P.haz=[];P.tok=[];P.gate=null;P.run=0;P.inv=2;P.x=150;P.y=GH/2;P.vx=P.vy=0;P.st='fly';pgHud()}
+function pgPause(){const P=PG;if(!P)return;
+if(P.st=='fly'){P.st='pause';for(const k in pgKeys)pgKeys[k]=0;const el=$('#gps');el.hidden=false;el.innerHTML=`<div><h3>Paused</h3><div class=row><button type=button class=bg id=gres>${ic('play',14)} Resume</button><button type=button class=b2 id=grst>${ic('refresh',14)} Restart</button><button type=button class=b2 id=gqt>Quit to menu</button></div></div>`;
+$('#gres').onclick=()=>pgPause();$('#grst').onclick=()=>ask('Restart the flight from the beginning? Your checkpoint will be cleared.',()=>{LS.set('pg',null);gameStart()},'Yes, restart');$('#gqt').onclick=()=>gameMenu();$('#gres').focus()}
+else if(P.st=='pause'){P.st='fly';$('#gps').hidden=true;pgLast=0}}
+function pgRestart(){LS.set('pg',null);gameStart()}
+/* ---- landing and victory ---- */
+function pgLandStart(){const P=PG;P.st='land';P.land=0;P.runway=true;P.gate=null;P.haz=[];P.tok=[];for(const k in pgKeys)pgKeys[k]=0;if(!RM.matches)say('Final approach. Landing!','wave',3000)}
+function pgLand(dt){const P=PG;P.land+=dt;P.t+=dt;P.sc+=170*Math.max(.08,1-P.land/3.4)*dt;P.x+=(300-P.x)*dt*.8;P.y+=(GH-66-P.y)*dt*1.6;P.tilt+=(.08-P.tilt)*dt*3;if(P.land>3.8)pgWin()}
+function pgWin(){const P=PG;if(P.st=='win')return;P.st='win';P.score+=P.hull*50;LS.set('pg',null);
+const tot=P.stats.reduce((a,s)=>a+s.a,0),fst=P.stats.reduce((a,s)=>a+s.f,0),pct=tot?Math.round(fst/tot*100):0;
+const msg=pct>=85?'Excellent. You really know this course.':pct>=60?'Good work. Review the units marked below to lock it in.':'You finished the journey. Replay the lessons for the units marked below, then fly again.';
+const rows=STG.map((s,i)=>{const t=P.stats[s.u];return`<tr><td>${i+1}. ${eh(stageName(i))}</td><td>${t.a?`${t.f} / ${t.a}`:'Mixed'}</td><td><i class=gbar><i style="width:${t.a?t.f/t.a*100:0}%"></i></i></td></tr>`}).join('');
+const rev=[...new Set(P.miss.map(id=>{const [a,b]=id.split('.');return STG[a].g[b]}).map(q=>q.c))];
+$('#gq').innerHTML=`<header class=gqh>${MAS('cheer',56)}<div><small>YOU LANDED</small><b>JAVA SKY ESCAPE COMPLETE!</b></div></header><p class=gqq>You made it safely through the sky! Score: <b>${P.score}</b> · first-try answers: <b>${fst} of ${tot}</b> (${pct}%). ${msg}</p><table class=gres><tbody>${rows}</tbody></table>${rev.length?`<p class=gfb>Concepts to review: ${rev.map(eh).join(', ')}.</p>`:''}<div class=row><button type=button class=bg id=gagain>${ic('refresh',14)} PLAY AGAIN</button><button type=button class=b2 id=gback>RETURN TO REVIEW</button></div>`;
+$('#gq').hidden=false;$('#gm').classList.add('asking');$('#gagain').focus({preventScroll:true});$('#gq').scrollIntoView({block:'nearest'});confetti();if(!RM.matches)say('We did it!','cheer',4000)}
+/* ---- input ---- */
+addEventListener('keydown',e=>{if(!PG||!$('#game').classList.contains('on'))return;const t=e.target,typing=t&&/^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName);
+if(e.key=='Escape'||(!typing&&(e.key=='p'||e.key=='P'))){if(PG.st=='fly'||PG.st=='pause'){e.preventDefault();pgPause()}return}
+if(typing||PG.st!='fly')return;const k=KM[e.key];if(k){pgKeys[k]=1;e.preventDefault()}});
+addEventListener('keyup',e=>{const k=KM[e.key];if(k)pgKeys[k]=0});
+addEventListener('blur',()=>{for(const k in pgKeys)pgKeys[k]=0});
+/* ---- drawing ---- */
+function pgLayer(x,off,col,base,amp,fr){x.fillStyle=col;x.beginPath();x.moveTo(0,GH);for(let i=0;i<=GW;i+=10){const u=i+off;x.lineTo(i,base+Math.sin(u*fr)*amp+Math.sin(u*fr*2.3+1)*amp*.4)}x.lineTo(GW,GH);x.fill()}
+function pgPlane(x,px,py,tilt,t){x.save();x.translate(px,py);x.rotate(tilt);
+x.fillStyle='#2f9e8c';x.beginPath();x.moveTo(-28,-4);x.lineTo(-38,-20);x.lineTo(-24,-20);x.lineTo(-14,-4);x.fill();
+x.fillStyle='#cfd8dc';x.beginPath();x.moveTo(-6,4);x.lineTo(8,4);x.lineTo(-8,19);x.lineTo(-22,19);x.fill();
+x.fillStyle='#f4f6f5';x.beginPath();x.moveTo(-30,-7);x.lineTo(24,-9);x.quadraticCurveTo(36,-6,36,0);x.quadraticCurveTo(34,8,24,9);x.lineTo(-30,6);x.quadraticCurveTo(-34,-1,-30,-7);x.fill();
+x.fillStyle='#4cc2ac';x.beginPath();x.moveTo(6,-8);x.lineTo(18,-8);x.lineTo(24,-2);x.lineTo(6,-2);x.fill();
+x.fillStyle='#e0a458';x.fillRect(-26,-1,34,2.5);
+x.fillStyle='#16312d';x.save();x.translate(37,0);x.scale(1,Math.abs(Math.sin(t*38))*.9+.2);x.fillRect(-1.5,-11,3,22);x.restore();
+x.restore()}
+function pgDraw(){const P=PG,x=pgCtx;if(!P||!x)return;const sc=P.sc;
+x.fillStyle='#14232a';x.fillRect(0,0,GW,GH);
+pgLayer(x,sc*.06,'#1a2f36',235,38,.012);pgLayer(x,sc*.16,'#203a41',290,26,.02);
+x.fillStyle='#1d333b';for(let i=0;i<5;i++){const cx=((i*230-sc*.12)%1150+1150)%1150-150,cy=50+(i*47)%110;for(const [dx,dy,r] of [[0,0,22],[24,-6,28],[52,2,20]]){x.beginPath();x.arc(cx+dx,cy+dy,r,0,6.283);x.fill()}}
+const gy=GH-40;x.fillStyle=P.runway?'#2b3237':'#233f3b';x.fillRect(0,gy,GW,40);
+x.fillStyle=P.runway?'#e8e9eb':'#2f524c';for(let k=-1;k<12;k++){const bx=((k*90-sc)%1080+1080)%1080-90;x.fillRect(bx,gy+(P.runway?18:22),P.runway?46:30,P.runway?4:3)}
+if(P.runway){x.fillStyle='#e0a458';for(let k=0;k<14;k++){const bx=((k*70-sc)%980+980)%980;x.fillRect(bx,gy+3,6,4)}}
+const g=P.gate;if(g){const o=g.open,hh=gy,w=9;
+for(const top of [1,0]){const y0=top?-o*hh/2:hh/2+o*hh/2;for(let s=0;s<hh/2;s+=22){x.fillStyle=((s/22)|0)%2?'#2a3238':'#e0a458';x.fillRect(g.x-w,y0+s,w*2,Math.min(22,hh/2-s))}}
+x.globalAlpha=1-o;x.fillStyle='#14232a';x.beginPath();x.roundRect?x.roundRect(g.x-26,gy/2-18,52,36,8):x.rect(g.x-26,gy/2-18,52,36);x.fill();x.fillStyle='#4cc2ac';x.font='600 22px IBM Plex Mono,monospace';x.textAlign='center';x.textBaseline='middle';x.fillText('?',g.x,gy/2+1);x.font='600 11px IBM Plex Sans,sans-serif';x.fillStyle='#e8e9eb';x.fillText(`GATE ${P.gi+1}/${P.gates.length}`,g.x,gy/2-30);x.globalAlpha=1}
+for(const k of P.tok){x.strokeStyle='#e0a458';x.lineWidth=2.5;x.beginPath();x.arc(k.x,k.y,k.r,0,6.283);x.stroke();x.fillStyle='#e0a458';x.font='600 10px IBM Plex Mono,monospace';x.textAlign='center';x.textBaseline='middle';x.fillText('{}',k.x,k.y+1)}
+for(const h of P.haz){if(h.t=='cloud'){x.fillStyle='#3a4650';for(const [dx,dy,r] of [[-.6,.2,.8],[0,-.25,1],[.7,.15,.75]]){x.beginPath();x.arc(h.x+dx*h.r,h.y+dy*h.r,h.r*r,0,6.283);x.fill()}x.fillStyle='#e0a458';x.beginPath();x.moveTo(h.x+2,h.y-4);x.lineTo(h.x-6,h.y+8);x.lineTo(h.x,h.y+8);x.lineTo(h.x-4,h.y+18);x.lineTo(h.x+8,h.y+4);x.lineTo(h.x+2,h.y+4);x.fill()}
+else{const w=Math.sin(P.t*14+h.ph)*7;x.strokeStyle='#0b1215';x.lineWidth=4.5;x.lineCap='round';x.lineJoin='round';x.beginPath();x.moveTo(h.x-17,h.y+w);x.lineTo(h.x,h.y);x.lineTo(h.x+17,h.y+w);x.stroke();x.fillStyle='#e0a458';x.beginPath();x.moveTo(h.x-17,h.y-1);x.lineTo(h.x-25,h.y+2);x.lineTo(h.x-17,h.y+5);x.fill()}}
+if(!(P.inv>0&&Math.floor(P.t*14)%2)){pgPlane(x,P.x,P.y,P.tilt,P.t)}
+x.font='600 14px IBM Plex Mono,monospace';x.textAlign='center';for(const e of P.fx){x.globalAlpha=1-e.t/.9;x.fillStyle=e.s=='Hit!'?'#ff8a80':'#e0a458';x.fillText(e.s,e.x,e.y-e.t*26)}x.globalAlpha=1;
+if(P.st=='ask'||P.st=='check'||P.st=='crash'){x.fillStyle='rgba(10,14,16,.38)';x.fillRect(0,0,GW,GH)}}
+
 (()=>{if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
 let pend=[];const SEL='#topic .uc>*,#toc>*:not(.grid),#toc .tc';
 const check=()=>{pend=pend.filter(e=>{if(!e.isConnected)return false;const r=e.getBoundingClientRect();if(r.height===0&&r.width===0)return true;if(r.top<innerHeight*.94){e.classList.add('in');return false}return true})};
