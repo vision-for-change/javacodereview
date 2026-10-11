@@ -200,6 +200,30 @@ nav{padding:10px 12px;flex-wrap:nowrap;overflow-x:auto}nav b{margin-right:8px;wh
 #topic h2{margin-top:36px}.note{margin-bottom:32px}
 .box{padding:24px}
 }
+/* image + text balance: centre text against tall media */
+#topic .note>.g2,#topic .ana .g2{align-items:center}
+.ana textarea{font-size:18px;line-height:1.6}
+.media img,.media video{max-height:72vh;object-fit:contain}
+/* Input & Output: guided flow + two-column lessons */
+.flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:center;gap:8px 20px;margin:32px 0 0;padding:30px 28px;border-radius:24px;background:var(--tint)}
+.flow>div{text-align:center}
+.flow small{display:block;font-weight:600;font-size:12px;letter-spacing:.16em;color:var(--ac)}
+.flow b{display:block;font-size:22px;letter-spacing:-.015em;margin:4px 0 2px}
+.flow span{display:block;color:var(--mut);font-size:14px}
+.flow code{display:inline-block;margin-top:12px;font:13px 'JetBrains Mono',monospace;background:#0c1d33;color:#7fe0c3;padding:5px 12px;border-radius:9px}
+.flow i{font-style:normal;color:var(--ac2);font-size:28px}
+#topic[data-i="0"] .note{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);grid-template-rows:1fr auto auto auto auto 1fr;column-gap:56px;margin-bottom:72px;align-items:start}
+#topic[data-i="0"] .note>h3{grid-column:1;grid-row:2;font-size:28px}
+#topic[data-i="0"] .note>textarea{grid-column:1;grid-row:3;font-size:17px}
+#topic[data-i="0"] .note>.ana{grid-column:1;grid-row:4;margin:24px 0 0}
+#topic[data-i="0"] .note>.row{grid-column:1;grid-row:5}
+#topic[data-i="0"] .note>.g2,#topic[data-i="0"] .note>div:last-child:not(.row){grid-column:2;grid-row:1/7;grid-template-columns:1fr;align-self:center;gap:20px}
+#topic[data-i="0"] .ana .g2{grid-template-columns:1fr;gap:14px}
+@media(max-width:820px){
+.flow{grid-template-columns:1fr;padding:24px 20px}.flow i{transform:rotate(90deg);justify-self:center}
+#topic[data-i="0"] .note{display:block;margin-bottom:48px}
+#topic[data-i="0"] .note>.g2{margin-top:24px}
+}
 /* polish: content blocks */
 .cd,textarea.code,#out{background:#0c1d33}
 textarea{resize:vertical;field-sizing:content;max-height:70vh}
@@ -405,7 +429,7 @@ add=(H.a?`<button class=b2 data-s=${key}:a>+ Add Analogy</button>`:'')+(H.p?`<bu
 return`<div class="card note"><h3>${n[0]}</h3><textarea class=sm data-k=${key}t placeholder="Write what you know about ${n[0]}..."></textarea>${H.a?'':ana}<div class="${H.p||H.e?'':'g2'}">${H.p?'':pic}${H.e?'':code}</div>${add?`<div class=row>${add}</div>`:''}</div>`}
 function topic(i){const t=T[i],dn=LS.get('done',[]);let h=`<button class=b2 id=bk>← Back to Table of Contents</button><div class=hd><small>SECTION 0${i+1} / 07</small><h1>${t.t}</h1><span class=sv>● Saved on this device</span><button class=b2 id=dn>${dn.includes(i)?'✓ Completed':'Mark as Completed'}</button></div>`;
 if(i==6){h+=`<h2>YOUR EXERCISES</h2><div class=g2>${[1,2,3,4].map(n=>`<div class=card><label>Question ${n}</label><textarea class=sm style="min-height:150px" data-k=q${n} placeholder="Add your question here..."></textarea></div>`).join('')}</div><h2>VIDEO EXPLANATIONS</h2><div class=g2>${[1,2,3,4].map(n=>`<div class=card><label>Video ${n}</label><div class=yt id=yt${n}></div><label>YouTube link</label><input data-k=vu${n} placeholder="Paste your YouTube link here (https://youtu.be/...)"><input data-k=vt${n} placeholder="Video title" style="margin-top:8px"><textarea class=sm data-k=vd${n} placeholder="Description" style="margin-top:8px"></textarea></div>`).join('')}</div>`}
-else{h+=`<h2>LESSON NOTES</h2><p class=mut>What You Need to Know — write your own notes under each heading.</p>${t.notes.map((n,k)=>noteCard(n,k,i)).join('')}
+else{h+=`${i==0?`<div class=flow><div><small>INPUT</small><b>Scanner</b><span>What the user types in</span><code>input.nextLine()</code></div><i>→</i><div><small>PROCESS</small><b>Your program</b><span>Stores it in a variable</span><code>String name</code></div><i>→</i><div><small>OUTPUT</small><b>System.out</b><span>What shows on the screen</span><code>println(name)</code></div></div>`:''}<h2>LESSON NOTES</h2><p class=mut>What You Need to Know — write your own notes under each heading.</p>${t.notes.map((n,k)=>noteCard(n,k,i)).join('')}
 <h2>INTERACTIVE JAVA LAB</h2><div class="card labcard"><div><b>Try it yourself</b><p class=mut>Open the sandbox, change the values, and watch the Java code and the output change.</p></div><button class=bg id=ol>▶ OPEN JAVA LAB</button></div>
 <h2>PICTURE EXAMPLES</h2><div id=exs></div><button class=bg id=ae>+ Add Example</button>`}
 h+=`<div class=row style="margin-top:30px;justify-content:space-between"><button class=b2 id=pv ${i?'':'disabled'}>← Previous Topic</button><button class=b2 onclick="show('toc')">All Topics</button>${i<6?'<button class=b2 id=nx>Next Topic →</button>':'<button class=bg id=nx>🎮 Go to Java Game →</button>'}</div>`;
