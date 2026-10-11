@@ -103,12 +103,12 @@ body{background:radial-gradient(ellipse at 8% -8%,#2b7bd122,transparent 45%),rad
 h1,h2,h3{letter-spacing:-.015em}
 p{margin:.6em 0}
 /* navigation */
-nav{background:color-mix(in srgb,var(--bg) 86%,transparent);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:0;box-shadow:0 10px 28px -24px #0d3b73aa;padding:12px max(16px,calc(50% - 484px));gap:4px}
+nav{background:color-mix(in srgb,var(--bg) 86%,transparent);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:0;box-shadow:0 10px 28px -24px #0d3b73aa;padding:12px max(20px,calc(50% - 580px));gap:4px}
 nav b{font-size:19px;letter-spacing:-.01em}
 nav button{font-size:15px;font-weight:500;padding:8px 16px;color:var(--mut);transition:background .2s,color .2s}
 nav button:hover{background:var(--soft);color:var(--fg)}
 nav button.on,nav button.on:hover{background:var(--ac);color:#fff}
-main{max-width:880px;padding:36px 20px 96px}
+main{max-width:1160px;padding:28px 24px 64px}
 /* buttons */
 .bg{background:var(--ac);border-radius:999px;padding:11px 24px;font-weight:600;box-shadow:0 8px 18px -8px #f26b1dbb;transition:transform .2s,box-shadow .2s,background .2s}
 .bg:hover{background:#f77a30;transform:translateY(-1px);box-shadow:0 12px 22px -8px #f26b1dcc}
@@ -118,12 +118,12 @@ button:focus-visible{outline:2px solid var(--ac2);outline-offset:2px}
 [data-h],[data-s],[data-del]{background:none;color:var(--mut);font-size:13px;padding:6px 12px}
 [data-h]:hover,[data-s]:hover,[data-del]:hover{background:var(--soft)!important;color:var(--fg)}
 /* sections instead of boxes */
-.card{background:none;border:0;border-radius:0;box-shadow:none;padding:0;margin:0 0 44px}
-.note{border:0;margin:0 0 60px;counter-increment:nt}
+.card{background:none;border:0;border-radius:0;box-shadow:none;padding:0;margin:0 0 28px}
+.note{border:0;margin:0 0 36px;counter-increment:nt}
 #topic{counter-reset:nt}
 .note h3{display:flex;align-items:baseline;gap:12px;font-size:24px;margin:0 0 16px}
 .note h3:before{content:counter(nt,decimal-leading-zero);font:600 13px 'JetBrains Mono',monospace;color:var(--ac)}
-#topic h2{display:block;margin:72px 0 22px;font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ac)}
+#topic h2{display:block;margin:44px 0 16px;font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ac)}
 #topic h2:before{display:none}
 #topic h2+p.mut{margin:-10px 0 28px}
 .mut{color:var(--mut)}
@@ -133,24 +133,24 @@ button:focus-visible{outline:2px solid var(--ac2);outline-offset:2px}
 .hd .sv{color:var(--mut)}
 .hd h1{font-size:clamp(34px,6vw,54px);letter-spacing:-.03em;margin:.25em 0 .35em}
 /* home */
-#home{padding:14vh 8px 10vh}
+#home{padding:9vh 8px 6vh}
 #home h1{letter-spacing:-.035em}
 #home p{font-size:clamp(18px,2.6vw,22px)}
 #home .bg{font-size:18px;padding:15px 38px}
-.card.about{margin-top:64px;max-width:600px}
+.card.about{margin-top:40px;max-width:600px}
 .about label{text-align:center}
 /* table of contents as a list */
 #toc h1{font-size:clamp(34px,6vw,48px);letter-spacing:-.03em;margin:.2em 0 .3em}
 .pg{height:6px;background:var(--soft2);margin:12px 0 36px}
-.grid{grid-template-columns:1fr;gap:0}
-.tc{display:grid;grid-template-columns:72px 1fr auto;grid-template-areas:"n t v" "n d v";align-items:center;column-gap:16px;margin:0 -20px;padding:20px;border-radius:18px;transition:background .2s}
+.grid{grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:6px 28px}
+.tc{display:grid;grid-template-columns:56px 1fr;grid-template-areas:"n t" "n d" "n v";align-items:center;column-gap:16px;margin:0 -16px;padding:18px 16px;border-radius:18px;transition:background .2s}
 .tc:hover{transform:none;background:var(--soft)}.tc:active{transform:scale(.995)}
 .tc:before{display:none}
 .tc .n{grid-area:n;font-size:30px;line-height:1}
 .tc h3{grid-area:t;margin:0;font-size:21px}
-.tc .vz{grid-area:v}
+.tc .vz{grid-area:v;justify-self:start;margin-top:8px}
 .tc p{grid-area:d;margin:2px 0 0}
-#toc>.card{margin-top:64px}
+#toc>.card{margin-top:40px}
 /* fields: soft fills instead of outlines */
 textarea,input[type=number],select,input:not([type]){background:var(--soft);border:0;border-radius:12px;padding:12px 14px;line-height:1.55;transition:box-shadow .2s}
 ::placeholder{color:var(--mut);opacity:.7}
@@ -162,7 +162,7 @@ label{font-size:12px;font-weight:600;letter-spacing:.1em;margin:20px 0 6px}
 .media img,.media video{border-radius:14px;box-shadow:var(--lift)}
 .ana{background:color-mix(in srgb,#f5a54a 13%,transparent);border:0;border-radius:18px;padding:18px 20px;margin:26px 0}
 .ytw{border-radius:14px}
-.labcard{background:var(--tint);color:var(--fg);border:0;border-radius:22px;padding:26px 28px;margin:0 0 44px}
+.labcard{background:var(--tint);color:var(--fg);border:0;border-radius:22px;padding:22px 26px;margin:0 0 28px}
 .labcard .mut{color:var(--mut)}
 /* quiz + game */
 #stats span{background:var(--soft);border:0;padding:6px 14px}
@@ -174,7 +174,7 @@ label{font-size:12px;font-weight:600;letter-spacing:.1em;margin:20px 0 6px}
 .q button:hover:not(:disabled){background:var(--soft2)}
 .xp{border:0;background:var(--soft);border-radius:14px;padding:14px 16px}
 .xp.ok{background:color-mix(in srgb,#2bb673 15%,transparent)}.xp.no{background:color-mix(in srgb,#e5484d 15%,transparent)}
-.card.end{max-width:620px;margin:8vh auto}
+.card.end{max-width:720px;margin:5vh auto}
 .card.end h1{letter-spacing:-.03em}
 /* modal */
 #md{background:#061220aa;-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px)}
@@ -193,11 +193,11 @@ label{font-size:12px;font-weight:600;letter-spacing:.1em;margin:20px 0 6px}
 #lx{border-radius:999px;padding:8px 16px}
 @media(max-width:800px){.lc{border:0}.lbx{border-radius:0}}
 @media(max-width:700px){
-main{padding:24px 16px 72px}
+main{padding:20px 16px 48px}
 nav{padding:10px 12px;flex-wrap:nowrap;overflow-x:auto}nav b{margin-right:8px;white-space:nowrap}nav button{white-space:nowrap;padding:8px 12px;font-size:14px}
-.tc{grid-template-columns:52px 1fr;grid-template-areas:"n t" "n d" "n v";margin:0 -12px;padding:16px 12px}.tc .vz{justify-self:start;margin-top:8px}
+.tc{grid-template-columns:52px 1fr;margin:0 -12px;padding:14px 12px}.grid{grid-template-columns:1fr}
 .tc .n{font-size:24px}
-#topic h2{margin-top:52px}.note{margin-bottom:48px}
+#topic h2{margin-top:36px}.note{margin-bottom:32px}
 .box{padding:24px}
 }
 </style>
